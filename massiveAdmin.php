@@ -65,7 +65,14 @@
 		if (!empty($_FILES)) {
 			$tempFile = $_FILES['file']['tmp_name'];             
 			$targetPath = __DIR__ . $ds. $storeFolder . $ds;  
-			$targetFile =  $targetPath. $_FILES['file']['name'];  
+			$nameFile = preg_replace('/[^0-9a-z-]+/', '',pathinfo($_FILES['file']['name'])['filename']).'.'.pathinfo($_FILES['file']['name'])['extension'];
+			$targetFile =  $targetPath. $nameFile;  
+
+			if(file_exists($targetFile)){
+				$targetFile =  $targetPath.rand(0,3432423).$nameFile;  
+
+			};
+
 			move_uploaded_file($tempFile,$targetFile); 
 		};
 	}
