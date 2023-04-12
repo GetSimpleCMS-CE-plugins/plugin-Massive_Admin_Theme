@@ -23,7 +23,7 @@ if (file_exists($thisfilew)) {
 
 if("<?php if(isset($data->turnon)){echo $data->turnon;};?>" == "true"){
     
-document.querySelector('.gslogo img').setAttribute('src','<?php echo $SITEURL;?>'+'plugins/massiveAdmin/footerfoto/'+'<?php if(isset($data->ownfootericon)){echo $data->ownfootericon;};?>');
+document.querySelector('.gslogo img').setAttribute('src','<?php echo $SITEURL;?>'+'data/other/footerfoto/'+'<?php if(isset($data->ownfootericon)){echo $data->ownfootericon;};?>');
 document.querySelector('.gslogo img').style.maxHeight="30px";
 document.querySelector('.gslogo a').setAttribute('href','<?php if(isset($data->ownfooterlink)){ echo $data->ownfooterlink;};?>');
 document.querySelector('.gslogo a img').setAttribute('alt','<?php if(isset($data->ownfootername)){echo $data->ownfootername;};?>');

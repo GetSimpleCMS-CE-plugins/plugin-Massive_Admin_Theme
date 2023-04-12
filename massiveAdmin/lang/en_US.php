@@ -71,6 +71,44 @@
      'MAINCOLOR' 		=> 'Main Color:',
      'BGCOLOR' 			=> 'Background Color:',
      'CHANGENAME' => "change the nickname to something other than the administrator nickname",
- ];
+    
+    
+    //snippet
+    'SNIPPET' => 'Snippets',
+    'ADDSNIPPET' => 'Add Snippet',
+    'EDITSNIPPET' => 'Edit Snippets',
+    'TITLESNIPPET' => 'Title (without spaces)',
+    'SUBMITSNIPPET' => 'Save Snippets',
 
-;?>
+    //migrate
+    'MIGRATETITLE' => 'Site Migration & SSL',
+    'MIGRATEDOMAIN' => 'Domain Migration',
+    'OLDDOMAIN' => 'Old Website Address',
+    'NEWDOMAIN' => 'New Website Address',
+    'REPLACEDOMAIN' => 'Replace URL',
+    'FORCESSL' => 'Force SSL',
+    'TURNONSSL' => 'Force SSL in URL?',
+    'SAVESSL' => 'Save SSL settings',
+
+    //plugin downloader
+
+    'PLUGINDOWNLOADER' => 'Download CE Plugins',
+    'DOWNLOADERBASED' => 'Based on the Get Simple CMS CE plugin repository.',
+    'SEARCHPLUGIN' => 'Search plugins...',
+    'DOWNLOAD' => 'Download',
+
+    //login options
+
+    'LOGINOPTIONS' => 'Login Options',
+    'TURNONSHOWPASSWORDTITLE' => '"Show password" button',
+    'SHOWPASSWORDQUESTION' => 'Enable the "Show Password" button when logging in?',
+    'REMOVEFORGETPASSWORDTITLE' => ' Remove "Forgot Password?" ',
+    'SAVESETTINGS' => 'Save Settings',
+
+    //GSCONFIG
+
+    'GSCONFIGTITLE' => 'Edit GSCONFIG settings',
+    'GSCONFIGSAVE' => 'Save the GSCONFIG settings'
+
+    ];
+;
