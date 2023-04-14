@@ -21,7 +21,7 @@ if (isset($_GET['snippet'])) {
 register_plugin(
 	$thisfile, //Plugin id
 	'Massive Admin Theme', 	//Plugin name
-	'3.0', 		//Plugin version
+	'3.1', 		//Plugin version
 	'Multicolor',  //Plugin author
 	'https://multicolor.stargard.pl', //author website
 	'Admin theme with new function', //Plugin description
@@ -316,13 +316,17 @@ add_action('plugins-sidebar', 'createSideMenu', [$thisfile, $pluginDownloader, '
 //components
 
 
-add_action('theme-sidebar', 'compCode');
+add_action('component-extras', 'compCode');
 
 function compCode()
 {
-
+	static $firstTime = true;
+	if($firstTime){
 	global $MA;
 	$MA->ComponentsCodeMirror();
+	$firstTime = false;
+};
+
 };
 
 

@@ -574,19 +574,24 @@ class MassiveAdminClass
 <script>
 window.addEventListener("load",()=>{
 
-	document.querySelectorAll(".compdiv textarea").forEach(x=>{
-		var editor = CodeMirror.fromTextArea(x, {
-			theme: "rubyblue",
-			lineNumbers: true,
-			matchBrackets: true,
-			indentUnit: 4,
-			indentWithTabs: true,
-			enterMode: "keep",
-			tabMode: "shift",
-			mode:"htmlmixed"
-		});
-		
-		});
+    if(document.querySelector("#components")){
+
+        document.querySelectorAll(".compdiv textarea").forEach(x=>{
+            var editor = CodeMirror.fromTextArea(x, {
+                theme: "rubyblue",
+                lineNumbers: true,
+                matchBrackets: true,
+                indentUnit: 4,
+                indentWithTabs: true,
+                enterMode: "keep",
+                tabMode: "shift",
+                mode:"htmlmixed"
+            });
+            
+            });
+
+    }
+
 
 })
 
