@@ -9,7 +9,7 @@ i18n_merge('massiveAdmin') || i18n_merge('massiveAdmin', 'en_US');
 
 if (isset($_GET['snippet'])) {
 	$sett = 'pages';
-} elseif (isset($_GET['downloader'])) {
+} elseif (isset($_GET['downloader']) || isset($_GET['unistaller'])) {
 	$sett = 'plugins';
 } else {
 	$sett = 'settings';
@@ -21,7 +21,7 @@ if (isset($_GET['snippet'])) {
 register_plugin(
 	$thisfile, //Plugin id
 	'Massive Admin Theme', 	//Plugin name
-	'3.1', 		//Plugin version
+	'3.2', 		//Plugin version
 	'Multicolor',  //Plugin author
 	'https://multicolor.stargard.pl', //author website
 	'Admin theme with new function', //Plugin description
@@ -296,7 +296,7 @@ function showPass()
 
 //snippet
 $snippet = i18n_r('massiveAdmin/SNIPPET');
-add_action('pages-sidebar', 'createSideMenu', [$thisfile, $snippet, 'snippet'], '');
+add_action('pages-sidebar', 'createSideMenu', [$thisfile, $snippet.' 📜', 'snippet'], '');
 
 
 function get_snippet($item)
@@ -309,7 +309,11 @@ function get_snippet($item)
 
 //downloader
 $pluginDownloader = i18n_r('massiveAdmin/PLUGINDOWNLOADER');
-add_action('plugins-sidebar', 'createSideMenu', [$thisfile, $pluginDownloader, 'downloader']);
+add_action('plugins-sidebar', 'createSideMenu', [$thisfile, $pluginDownloader .' 📦', 'downloader']);
+
+//unistaller
+$pluginUnistaller = i18n_r('massiveAdmin/UNISTALLER');
+add_action('plugins-sidebar', 'createSideMenu', [$thisfile, $pluginUnistaller .' 🗑️', 'unistaller']);
 
 
 
@@ -357,7 +361,9 @@ function massiveOption()
 		include(GSPLUGINPATH . 'massiveAdmin/modules/snippet.php');
 	} elseif (isset($_GET['downloader'])) {
 		include(GSPLUGINPATH . 'massiveAdmin/modules/downloader.php');
-	};;
+	} elseif (isset($_GET['unistaller'])) {
+		include(GSPLUGINPATH . 'massiveAdmin/modules/unistaller.php');
+	};
 
 	echo '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="box-sizing:border-box; display:grid; align-items:center;width:100%;grid-template-columns:1fr auto; padding:10px !important;background:#fafafa;border:solid 1px #ddd;margin-top:20px;">
 		<p style="margin:0;padding:0;">' . i18n_r("massiveAdmin/SUPPORT") . '</p>
