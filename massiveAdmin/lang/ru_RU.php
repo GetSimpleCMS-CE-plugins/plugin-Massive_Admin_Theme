@@ -108,7 +108,10 @@
     //GSCONFIG
 
     'GSCONFIGTITLE' => 'Изменить настройки GSCONFIG',
-    'GSCONFIGSAVE' => 'Сохранить настройки GSCONFIG'
+    'GSCONFIGSAVE' => 'Сохранить настройки GSCONFIG',
+
+	'UNISTALLER' =>'Удалить плагины',
+	'UNISTALLQUESTION'=>'вы хотите удалить',
 
     ];
 ;

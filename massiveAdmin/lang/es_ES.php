@@ -109,7 +109,10 @@ $i18n = [
     //GSCONFIG
 
     'GSCONFIGTITLE' => 'Editar GSCONFIG',
-    'GSCONFIGSAVE' => 'Guarder GSCONFIG'
+    'GSCONFIGSAVE' => 'Guarder GSCONFIG',
+
+	'UNISTALLER' =>'Desinstalar complementos',
+	'UNISTALLQUESTION'=>'Quieres desinstalar',
 
     ];
 ;

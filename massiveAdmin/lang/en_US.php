@@ -108,7 +108,10 @@
     //GSCONFIG
 
     'GSCONFIGTITLE' => 'Edit GSCONFIG settings',
-    'GSCONFIGSAVE' => 'Save the GSCONFIG settings'
+    'GSCONFIGSAVE' => 'Save the GSCONFIG settings',
+
+	'UNISTALLER' =>'Uninstall plugins',
+	'UNISTALLQUESTION'=>'You want to uninstall',
 
     ];
 ;
