@@ -37,6 +37,7 @@ foreach ($jsondb as $key => $value) {
     <form action="#" method="POST">
     <input type="hidden" name="url" value="' . $value->url . '">
 <input type="submit" name="download" class="download" value="' . i18n_r('massiveAdmin/DOWNLOAD') . '">
+
     </form>
     </li>
     ';
