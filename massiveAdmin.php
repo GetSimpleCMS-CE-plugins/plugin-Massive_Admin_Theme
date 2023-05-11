@@ -21,7 +21,7 @@ if (isset($_GET['snippet'])) {
 register_plugin(
 	$thisfile, //Plugin id
 	'Massive Admin Theme', 	//Plugin name
-	'3.2', 		//Plugin version
+	'3.3', 		//Plugin version
 	'Multicolor',  //Plugin author
 	'https://multicolor.stargard.pl', //author website
 	'Admin theme with new function', //Plugin description
