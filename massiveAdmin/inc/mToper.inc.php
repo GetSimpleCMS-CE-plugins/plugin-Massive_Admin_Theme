@@ -2,26 +2,22 @@
 
 <?php $massiveHiddenSection = GSDATAOTHERPATH . '/massiveHiddenSection/';
 
-global $GSADMIN;
-global $SITEURL;
+	global $GSADMIN;
+	global $SITEURL;
 
-$URL = $SITEURL . $GSADMIN;
+	$URL = $SITEURL . $GSADMIN;
 
-$filejson = 'userhidden.json';
-$finaljson = $massiveHiddenSection . $filejson;
+	$filejson = 'userhidden.json';
+	$finaljson = $massiveHiddenSection . $filejson;
 
-$datee = @file_get_contents($finaljson);
-$data = json_decode($datee);
+	$datee = @file_get_contents($finaljson);
+	$data = json_decode($datee);
 
-
-
-
-$folder2        = GSDATAOTHERPATH . '/massiveMenuExt/';
-$filename2     = $folder2 . 'menuext.json';
-$datee2 = @file_get_contents($filename2);
-$data2 = json_decode($datee2, true);; ?>
-
-
+	$folder2        = GSDATAOTHERPATH . '/massiveMenuExt/';
+	$filename2     = $folder2 . 'menuext.json';
+	$datee2 = @file_get_contents($filename2);
+	$data2 = json_decode($datee2, true);
+; ?>
 
 <style>
 	@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
@@ -104,7 +100,6 @@ $data2 = json_decode($datee2, true);; ?>
 		display: none !important;
 	}
 
-
 	.m-toper ul:not(.massiveedit) li {
 		position: relative !important;
 	}
@@ -121,13 +116,12 @@ $data2 = json_decode($datee2, true);; ?>
 		font-size: 12px;
 		background: #fff;
 		padding: 10px;
-text-align: center;
+		text-align: center;
 		display: none;
 	}
 
 	.m-toper ul li:hover::after {
 		display: block;
-
 	}
 
 	@media(max-width:768px){
@@ -135,11 +129,8 @@ text-align: center;
 		.m-toper span{
 			display: none;
 		}
-
-
 	}
 </style>
-
 
 <div class="m-toper">
 	<div class="m-toper-container">
@@ -147,8 +138,6 @@ text-align: center;
 			<li data-hover="<?php echo i18n('EDITPAGE_TITLE'); ?>"> <a href="<?php echo $URL; ?>/edit.php?id=<?php echo get_page_slug(); ?>" ><i class="uil uil-edit"></i><span> <?php echo i18n('EDITPAGE_TITLE'); ?></span></a></li>
 			<li data-hover="<?php echo i18n('NEW_PAGE'); ?>" ><a href="<?php echo $URL; ?>/edit.php" ><i class="uil uil-plus-circle"></i><span><?php echo i18n('NEW_PAGE'); ?></span> </a></li>
 		</ul>
-
-
 
 		<ul class="massivepages">
 			<li id="nav_pages" data-hover=" <?php echo i18n('TAB_PAGES'); ?> "><a href="<?php echo $URL; ?>/pages.php"><i class="uil uil-desktop"></i> </a></li>
@@ -158,24 +147,18 @@ text-align: center;
 			<li id="nav_plugins" data-hover="<?php i18n('PLUGINS_NAV'); ?>"><a href="<?php echo $URL; ?>/plugins.php"><i class="uil uil-plug"></i></a></li>
 
 			<?php
-
-			if (file_exists($filename2)) {
-
-				foreach ($data2 as $query) {
-
-					echo '<li  data-hover="' . $query["name"] . '"><a href="' . $query["url"] . '" target="' . $query["linkblank"] . '" ><i class="' . $query["icon"] . '"></i></a></li>';
+				if (file_exists($filename2)) {
+					foreach ($data2 as $query) {
+						echo '<li  data-hover="' . $query["name"] . '"><a href="' . $query["url"] . '" target="' . $query["linkblank"] . '" ><i class="' . $query["icon"] . '"></i></a></li>';
+					};
 				};
-			};
 			?>
 
 			<li data-hover="<?php i18n('SETTINGS'); ?>"> <a href="<?php get_site_url(); ?>admin/settings.php"><i class="uil uil-setting"></i></a>
 			<li data-hover="<?php i18n('TAB_LOGOUT'); ?>"><a href="<?php get_site_url(); ?>admin/logout.php"><i class="uil uil-power"></i></a>
 		</ul>
-
-
 	</div>
 </div>
-
 
 <script>
 	if (document.querySelector("#nav_pages") !== null) {
@@ -202,13 +185,11 @@ text-align: center;
 		};
 	};
 
-
 	if (document.querySelector("#nav_backups") !== null) {
 		if ('<?php echo @$data->hidebackup; ?>' == "hide") {
 			document.querySelector("#nav_backups").remove()
 		};
 	};
-
 
 	if (document.querySelector("#nav_i18n_gallery") !== null) {
 		if ('<?php echo @$data->hidei18n; ?>' == "hide") {
