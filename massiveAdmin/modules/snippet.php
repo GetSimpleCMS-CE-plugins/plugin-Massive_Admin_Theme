@@ -5,6 +5,16 @@
 	<div class="clear"></div>
 </div>
 
+<style>
+	.copybutton { display: inline-block; position: relative; vertical-align: middle; }
+	.copybutton img { transition: transform 0.3s; width:22px; }
+	.copybutton:hover img { transform: scale(1.2); }
+	.copybutton:active img { transform: scale(0.8); }
+	.shortcode{font-size:small; background-color:#f1f1f1; padding:3px 5px; border:1px solid #B2B2B2; margin-right:5px; border-radius: 5px;}
+	.tpl{color:royalblue;}
+	.cke{color:hotpink;}
+</style>
+
 <form action="#" method="post">
 	<div class="snippet-list">
 
@@ -23,12 +33,31 @@
 					$title = $file->title;
 					$content = $file->content;
 					echo '
-					<div style="display:block; position:relative; width:100%; border:solid 1px #ddd; margin-top:15px; background:#fafafa; padding:10px; box-sizing:border-box; padding-top:30px;">
-						<p style="position:absolute; top:5px; left:10px; color:#333;font-size:12px;">&#60;?php get_snippet("' . $title . '");?></p>
+					<div style="display:block; position:relative; width:100%; border:solid 1px #ddd; margin-top:15px; background:#fafafa; padding:10px; box-sizing:border-box; padding-top:40px;">
+						<div style="position:absolute; top:5px; left:10px;padding-bottom:20px;height:40px;">
+							<span id="' . $title . '" class="shortcode tpl">&#60;?php get_snippet("' . $title . '");?></span>
+							<a href="javascript:;" class="copybutton">
+							<image id="copy-' . $title . '" data-clipboard-target="#' . $title . '" src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAAAqo0jMgAAAAlwSFlzAAAAYAAAAGAA8GtCzwAAAAd0SU1FB+cFFgkEJsO3fd8AAADQSURBVDjLvZM7CsJAFEWP0SKSUlJoOi2yiDSJK3ALFindUMBSV2HAzyJEQVHxU0gqm5QWAXWSyWdAPeV9c7nzLjPwa2pS1cPHFJQ7AXMATXp8hpPSHELcvNQpR/SUpnNikpfQZk+c0mJ2dAAaEsOjaGmZYahqiKoYCooU0VSLTBJ8ztipZnS2+NkMrbxIAJr0uOYtLdJijIGNRfBOKGeFx6JaQsQgu4MC/zLc6GYe9KtIkeTHuYRc2AgTG4t+0swndQAOLDAxhMmaEUvVC3+DJ4xiLDPLiEozAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIzLTA1LTIyVDA5OjA0OjM4KzAwOjAwa+wQugAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNS0yMlQwOTowNDozOCswMDowMBqxqAYAAAAodEVYdGRhdGU6dGltZXN0YW1wADIwMjMtMDUtMjJUMDk6MDQ6MzgrMDA6MDBNpInZAAAAAElFTkSuQmCC"></a>
+						</div>
 						<button style="border-radius:5px; position:absolute; top:5px; right:10px; background:red; color:#fff; border:none;" onclick="event.preventDefault();closeThisSnippet(this)"> ✕ </button>
 						<input type="text" required  pattern="[a-zA-Z0-9]+" style="width:100%; padding:10px; margin-bottom:10px;" placeholder="' . i18n_r('massiveAdmin/TITLESNIPPET') . '" value="' .  $title . '" name="snippetTitle[]">
 						<textarea name="content[]" class="snippet-content" id="post-content" style="width:100%;">' . $content . '</textarea>
 					</div>
+					
+					<script>
+						document.getElementById("copy-' . $title . '").addEventListener("click", copyCodeToClipboard);
+						function copyCodeToClipboard() {
+						  const codeSnippet = document.getElementById("' .  $title . '");
+						  const range = document.createRange();
+						  range.selectNode(' .  $title . ');
+						  const selection = window.getSelection();
+						  selection.removeAllRanges();
+						  selection.addRange(range);
+						  document.execCommand("copy");
+						  selection.removeAllRanges();
+						}
+					</script>
+					
 					';
 				};
 			};
@@ -95,5 +124,4 @@
 	$MA->snippetSave();
 
 	echo ("<meta http-equiv='refresh' content='0'>");
-};
-?>
+}; ?>
