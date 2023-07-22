@@ -5,8 +5,7 @@ $thisfile = basename(__FILE__, ".php");
 
 i18n_merge('massiveAdmin') || i18n_merge('massiveAdmin', 'en_US');
 
-//this changes category sidebar
-
+# this changes category sidebar
 if (isset($_GET['snippet'])) {
 	$sett = 'pages';
 } elseif (isset($_GET['downloader']) || isset($_GET['unistaller'])) {
@@ -15,13 +14,11 @@ if (isset($_GET['snippet'])) {
 	$sett = 'settings';
 }
 
-//
-
 # register plugin
 register_plugin(
 	$thisfile, //Plugin id
 	'Massive Admin Theme', 	//Plugin name
-	'3.3', 		//Plugin version
+	'4.0', 		//Plugin version
 	'Multicolor',  //Plugin author
 	'https://multicolor.stargard.pl', //author website
 	'Admin theme with new function', //Plugin description
@@ -30,15 +27,13 @@ register_plugin(
 	'massiveOption'  //main function (administration)
 );
 
-
 global $SITEURL;
 
 require(GSPLUGINPATH . 'massiveAdmin/class/massiveAdmin.class.php');
 
 $MA = new MassiveAdminClass();
 
-#new option on file browser
-
+# new option on file browser
 add_action('file-extras', 'newOptionsMassive');
 
 function newOptionsMassive()
@@ -47,9 +42,7 @@ function newOptionsMassive()
 	include(GSPLUGINPATH . 'massiveAdmin/inc/newOptionsMassive.inc.php');
 }
 
-
-#massive uploader on i18n gallery
-
+# massive uploader on i18n gallery
 add_action('pages-sidebar', 'massiveUploader');
 
 if (strpos($_SERVER['REQUEST_URI'], "i18n_gallery&edit") !== false) {
@@ -66,24 +59,22 @@ function massiveUploader()
 	$MA->massiveUpload();
 }
 
-//component on pages
-
+# component on pages
 add_action('pages-sidebar', 'compomassive');
 
 function compomassive()
 {
-
 	global $MA;
 	$MA->compositeOnPage();
 };
 
-
-
 # activate massive active script and css
-
 $folder = GSDATAOTHERPATH . '/massiveadmin/';
 
-register_style('masivestyle', $SITEURL . 'plugins/massiveAdmin/css/themeStyle.css', '2.0', 'screen');
+#themeSelector 
+$themeChecker = @file_get_contents(GSDATAOTHERPATH . 'massiveTheme/option.txt') ?? 'massive';
+
+register_style('masivestyle', $SITEURL . 'plugins/massiveAdmin/theme/' . $themeChecker . '.css', '2.0', 'screen');
 queue_style('masivestyle', GSBACK);
 
 add_action('footer', 'ckeStyleImplementation');
@@ -91,7 +82,6 @@ function ckeStyleImplementation()
 {
 	include(GSPLUGINPATH . 'massiveAdmin/inc/ckeStyleImplementation.inc.php');
 };
-
 
 register_script('masivescript', $SITEURL . 'plugins/massiveAdmin/js/script.js', '4.0', TRUE);
 queue_script('masivescript', GSBACK);
@@ -104,8 +94,6 @@ queue_script('masivescriptdropzone', GSBACK);
 
 add_action('header', 'masiveHeader');
 
-
-
 $massiveOptionFile = GSDATAOTHERPATH . '/massiveadmin/massiveOption.json';
 $massiveOptionFileContent = @file_get_contents($massiveOptionFile);
 if (file_exists($massiveOptionFile)) {
@@ -113,37 +101,32 @@ if (file_exists($massiveOptionFile)) {
 	$MA->massiveFile();
 };
 
-//massiveHeader & Icon
-
+# massiveHeader & Icon
 function masiveHeader()
 {
 	global $MA;
 	$MA->massiveHead();
 }
 
-
-
-
-//codeminor fixes
-
+# codeminor fixes
 add_action('footer', 'footerCodeMirror');
 function footerCodeMirror()
 {
-	global $MA;
-	$MA->codeMirror();
+
+	if (!strpos($_SERVER['REQUEST_URI'], 'components.php')) {
+		global $MA;
+		$MA->codeMirror();
+	}
 }
 
-
-//maitence mode on or off check
-
+# maitence mode on or off check
 add_action('theme-footer', 'massivemaintence');
 function massivemaintence()
 {
 	include(GSPLUGINPATH . 'massiveAdmin/inc/maintenceFront.inc.php');
 };
 
-//mtoper on front website
-
+# mtoper on front website
 if (isset($_COOKIE['GS_ADMIN_USERNAME'])) {
 	$cookie_user_id = _id($_COOKIE['GS_ADMIN_USERNAME']);
 	if (file_exists(GSUSERSPATH . $cookie_user_id . '.xml')) {
@@ -157,7 +140,21 @@ if (isset($_COOKIE['GS_ADMIN_USERNAME'])) {
 
 		function massivefronter()
 		{
-			include(GSPLUGINPATH . 'massiveAdmin/inc/mToper.inc.php');
+			global $SITEURL;
+			$mtoperSettingPath = GSDATAOTHERPATH . 'massiveToperSettings/';
+
+			$checkTurnOn = file_get_contents($mtoperSettingPath . 'turnon.txt');
+			$style = file_get_contents($mtoperSettingPath . 'style.txt');
+
+
+			if ($checkTurnOn == 'on') {
+
+				if ($style !== '') {
+					echo '<link rel="stylesheet" href="' . $SITEURL . 'plugins/massiveAdmin/toper-theme/' . $style . '.css">';
+				};
+
+				include(GSPLUGINPATH . 'massiveAdmin/inc/mToper.inc.php');
+			}
 		}
 	} else {
 		$USR = null;
@@ -165,7 +162,8 @@ if (isset($_COOKIE['GS_ADMIN_USERNAME'])) {
 };
 
 
-//login plugins
+
+# login plugins
 add_action('index-login', 'scriptHeader');
 
 function scriptHeader()
@@ -174,9 +172,7 @@ function scriptHeader()
 };
 $massiveAdminSettingsTitle = i18n_r("massiveAdmin/MASSIVEADMINSETTINGSTITLE");
 
-
-
-// plugins search admin
+# plugins search admin
 add_action('footer', 'searchplugin');
 function searchplugin()
 {
@@ -184,9 +180,7 @@ function searchplugin()
 	echo '<script src="' . $SITEURL . 'plugins/massiveAdmin/js/searchPlugin.js"></script>';
 };
 
-
-//new module massiveMenuExternal
-
+# new module massiveMenuExternal
 $MenuExternalTitle = i18n_r('massiveAdmin/MENUEXTERNAL');
 
 add_action('settings-sidebar', 'createSideMenu', [$thisfile, $MenuExternalTitle, 'menuext']);
@@ -198,9 +192,7 @@ function massiveExtNavbar()
 	include(GSPLUGINPATH . 'massiveAdmin/inc/menuExtNavbar.inc.php');
 };
 
-
-//hidden section and user manager
-
+# hidden section and user manager
 $HideMassiveTitle = i18n_r('massiveAdmin/HIDEMENUTITLE');
 add_action('settings-sidebar', 'createSideMenu', [$thisfile, $HideMassiveTitle, 'hideadminsection']);
 add_action('footer', 'hideSectionfooter');
@@ -209,15 +201,10 @@ function hideSectionfooter()
 	include(GSPLUGINPATH . 'massiveAdmin/inc/hiddenAdminSectionFooter.inc.php');
 };
 
-
-
-
-//Own footer option
-
+# Own footer option
 $OwnFooterOption = i18n_r('massiveAdmin/OWNFOOTERTITLE');
 add_action('settings-sidebar', 'createSideMenu', [$thisfile, $OwnFooterOption, 'ownfooteroption']);
 add_action('footer', 'ownFooterScripts');
-
 
 function ownFooterScripts()
 {
@@ -237,15 +224,11 @@ function ownFooterIndex()
 	include(GSPLUGINPATH . 'massiveAdmin/inc/ownFooterIndex.inc.php');
 };
 
-
-
-//create massive option
-
+# create massive option
 $MassiveAdminSettingTitle = i18n_r('massiveAdmin/MASSIVEADMINSETTINGSTITLE');
 add_action('settings-sidebar', 'createSideMenu', [$thisfile, $MassiveAdminSettingTitle, 'massiveoption']);
 
-//create helpdesk option
-
+# create helpdesk option
 $helpTitle = i18n_r('massiveAdmin/USERHELPTITLE');
 add_action('settings-sidebar', 'createSideMenu', [$thisfile, $helpTitle, 'helpdesk']);
 $helpFile = GSDATAOTHERPATH . '/massiveHelpDesk/helpdesk.json';
@@ -261,28 +244,20 @@ if (file_exists($helpFile)) {
 	}
 }
 
-
-// 3.0
-
-
-
-
-
+# 3.0
 $migrate = i18n_r('massiveAdmin/MIGRATETITLE');
 add_action('settings-sidebar', 'createSideMenu', [$thisfile, $migrate, 'migrate']);
-
-
 
 $GSconfig = 'GSConfig';
 add_action('settings-sidebar', 'createSideMenu', [$thisfile, $GSconfig, 'gsconfigEdit']);
 
-
+$frontEndSettings = i18n_r('massiveAdmin/FRONTENDTITLE');
+add_action('settings-sidebar', 'createSideMenu', [$thisfile, $frontEndSettings, 'frontendsettings']);
 
 $showPassword = i18n_r('massiveAdmin/LOGINOPTIONS');
 add_action('settings-sidebar', 'createSideMenu', [$thisfile, $showPassword, 'showPassword']);
 
 add_action('index-login', 'showPass');
-
 
 function showPass()
 {
@@ -290,13 +265,9 @@ function showPass()
 	$MA->showIndexOption();
 };
 
-
-
-
-
-//snippet
+# snippet
 $snippet = i18n_r('massiveAdmin/SNIPPET');
-add_action('pages-sidebar', 'createSideMenu', [$thisfile, $snippet.' 📜', 'snippet'], '');
+add_action('pages-sidebar', 'createSideMenu', [$thisfile, $snippet . ' 📜', 'snippet'], '');
 
 
 function get_snippet($item)
@@ -306,39 +277,45 @@ function get_snippet($item)
 	echo htmlspecialchars_decode($readed->$item->content);
 };
 
-
-//downloader
+# downloader
 $pluginDownloader = i18n_r('massiveAdmin/PLUGINDOWNLOADER');
-add_action('plugins-sidebar', 'createSideMenu', [$thisfile, $pluginDownloader .' 📦', 'downloader']);
+add_action('plugins-sidebar', 'createSideMenu', [$thisfile, $pluginDownloader . ' 📦', 'downloader']);
 
 //unistaller
 $pluginUnistaller = i18n_r('massiveAdmin/UNISTALLER');
-add_action('plugins-sidebar', 'createSideMenu', [$thisfile, $pluginUnistaller .' 🗑️', 'unistaller']);
+add_action('plugins-sidebar', 'createSideMenu', [$thisfile, $pluginUnistaller . ' 🗑️', 'unistaller']);
 
-
-
-//components
-
-
+# components
 add_action('component-extras', 'compCode');
 
 function compCode()
 {
 	static $firstTime = true;
-	if($firstTime){
-	global $MA;
-	$MA->ComponentsCodeMirror();
-	$firstTime = false;
+	if ($firstTime) {
+		global $MA;
+		$MA->ComponentsCodeMirror();
+		$firstTime = false;
+	};
 };
 
-};
+# theme selector
+$MassiveAdminThemeSelector = i18n_r('massiveAdmin/ADMINTHEMESELECTOR');
+add_action('settings-sidebar', 'createSideMenu', [$thisfile, $MassiveAdminThemeSelector, 'themeselector']);
+
+
+# redirect page to homepage bar
 
 
 
-//all massive option  
 
+
+# all massive option  
 function massiveOption()
 {
+
+
+
+
 	if (isset($_GET['massiveoption'])) {
 		include(GSPLUGINPATH . 'massiveAdmin/modules/massiveOption.php');
 	} elseif (isset($_GET['helpfromuser'])) {
@@ -363,13 +340,18 @@ function massiveOption()
 		include(GSPLUGINPATH . 'massiveAdmin/modules/downloader.php');
 	} elseif (isset($_GET['unistaller'])) {
 		include(GSPLUGINPATH . 'massiveAdmin/modules/unistaller.php');
-	};
+	} elseif (isset($_GET['themeselector'])) {
+		include(GSPLUGINPATH . 'massiveAdmin/modules/themeSelector.php');
+	} elseif (isset($_GET['frontendsettings'])) {
+		include(GSPLUGINPATH . 'massiveAdmin/modules/frontendSettings.php');
+	};;
 
-	echo '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="box-sizing:border-box; display:grid; align-items:center;width:100%;grid-template-columns:1fr auto; padding:10px !important;background:#fafafa;border:solid 1px #ddd;margin-top:20px;">
-		<p style="margin:0;padding:0;">' . i18n_r("massiveAdmin/SUPPORT") . '</p>
-		<input type="hidden" name="cmd" value="_s-xclick" />
-		<input type="hidden" name="hosted_button_id" value="KFZ9MCBUKB7GL" />
-		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-		<img alt="" border="0" src="https://www.paypal.com/en_PL/i/scr/pixel.gif" width="1" height="1" />
-	</form>';
+	echo '
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="box-sizing:border-box; display:grid; align-items:center;width:100%;grid-template-columns:1fr auto; padding:10px !important;background:#fafafa;border:solid 1px #ddd;margin-top:20px;">
+			<p style="margin:0;padding:0;">' . i18n_r("massiveAdmin/SUPPORT") . '</p>
+			<input type="hidden" name="cmd" value="_s-xclick" />
+			<input type="hidden" name="hosted_button_id" value="KFZ9MCBUKB7GL" />
+			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+			<img alt="" border="0" src="https://www.paypal.com/en_PL/i/scr/pixel.gif" width="1" height="1" />
+		</form>';
 };

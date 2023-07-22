@@ -5,7 +5,6 @@
 		align-items: center;
 		justify-content: center;
 	}
-
 	#imageTable .delconfirm {
 		background: none;
 		color: #111 !important;
@@ -13,8 +12,6 @@
 		width: 100%;
 		margin: 5px;
 	}
-
-
 	#imageTable .rename-massive-btn,
 	#imageTable .copy-massive-btn,
 	#imageTable .download-massive-btn {
@@ -30,17 +27,12 @@
 		cursor: pointer;
 		font-size: 19px !important;
 	}
-
 	#imageTable .rename-massive-btn:hover,
 	#imageTable .copy-massive-btn:hover,
 	#imageTable .download-massive-btn:hover {
 		background: #000 !important;
 		color: #fff !important;
-
 	}
-
-
-
 	.rename-fog {
 		position: fixed;
 		top: 0;
@@ -53,7 +45,6 @@
 		justify-content: center;
 		background: rgba(0, 0, 0, 0.3);
 	}
-
 	.form-rename {
 		width: 300px;
 		height: auto;
@@ -65,31 +56,24 @@
 		padding: 15px;
 		padding-top: 40px;
 		position: relative;
-
 	}
-
 	.form-rename input {
 		width: 100%;
 		padding: 15px;
 		margin: 10px;
 	}
-
 	.form-rename .submit {
 		width: 250px;
 	}
-
 	.form-rename input {
 		width: 100%;
 		padding: 15px;
 		margin: 10px;
 	}
-
 	.hide-fog {
 		display: none;
 	}
-
 	.close-rename-fog {
-
 		background: #00162a;
 		color: #fff;
 		width: 250px;
@@ -99,11 +83,9 @@
 		border: none;
 		transition: all 250ms linear;
 	}
-
 	.close-rename-fog:hover {
 		background: #AA190F;
 	}
-
 	.massive-error {
 		background: red;
 		color: #fff;
@@ -112,7 +94,6 @@
 		border-radius: 5px;
 		display: block;
 	}
-
 	.massive-done {
 		background: green;
 		color: #fff;
@@ -121,11 +102,6 @@
 		border-radius: 5px;
 		display: block;
 	}
-
-
-
-
-
 	.All.folder tr td {
 		display: flex;
 		flex-direction: column;
@@ -137,9 +113,7 @@
 		width: 100% !important;
 		flex: 40px 1 0;
 		border: none;
-
 	}
-
 	.massive-folder-linker {
 		background: #00162a;
 		width: 100%;
@@ -148,26 +122,18 @@
 		align-items: center;
 		justify-content: center;
 		transition: all 250ms linear;
-
 	}
-
 	.massive-folder-linker i {
 		color: #fff;
 	}
-
-
 	.All .delete {
 		display: flex !important;
 		flex-direction: row !important;
 	}
-
-
 	.All.folder a:nth-child(2) {
 		margin-top: 26px;
 		margin-bottom: 10px;
 	}
-
-
 	#imageTable .delconfirm {
 		background: none;
 		color: #111 !important;
@@ -180,53 +146,34 @@
 		padding: 3px;
 		padding: 5px !important;
 	}
-
-
 	.All.folder:hover .massive-folder-linker {
 		background: #000409;
 	}
-
-
-
 </style>
-
-
-
 
 <div class="rename-fog hide-fog">
 	<div class="form-rename">
 		<form class="form-form-rename" action="#" method="post">
-
 			<input type="text" name="rename-massive-hide" style="display:none">
-
 			<input type="text" name="rename-massive">
 			<input type="submit" name="save-rename-massive" class="submit" value="<?php echo i18n_r("massiveAdmin/RENAMEFILE"); ?>">
 			<input type="submit" name="copy-rename-massive" class="submit" value="<?php echo i18n_r("massiveAdmin/COPYFILE"); ?>">
 			<button class="close-rename-fog"><i class="uil uil-times"></i></button>
-
 		</form>
 	</div>
 </div>
 
-
-
 <script>
 	if (window.location.href.indexOf('?type=carousel') < 0) {
-
 		window.onload = function() {
 			const imageTableTd = document.querySelectorAll('#imageTable .All');
-
-
 
 			imageTableTd.forEach(e => {
 				if (e.querySelector('.imgthumb img') !== null) {
 					const name = e.querySelector('#imageTable .All .imgthumb img').getAttribute('src');
 					console.log(name);
 
-
-
 					if (e.querySelector('.delete .delconfirm') !== null) {
-
 						const deleteBtn = e.querySelector('.delete .delconfirm');
 						const renameBtn = document.createElement('button');
 						renameBtn.classList.add('rename-massive-btn');
@@ -245,7 +192,6 @@
 						downloadBtn.innerHTML = " <i class='uil uil-download-alt'></i>";
 						deleteBtn.insertAdjacentElement('afterend', downloadBtn);
 
-
 						renameBtn.addEventListener('click', () => {
 							document.querySelector('.rename-fog').classList.remove('hide-fog');
 							document.querySelector('input[name="rename-massive-hide"]').value = name.substr('16');
@@ -262,139 +208,87 @@
 							document.querySelector('input[name="copy-rename-massive"]').style.display = "block";
 						});
 
-
-
 					};
 				}
 			});
-
-
 
 			const closeRename = document.querySelector('.close-rename-fog');
 
 			closeRename.addEventListener('click', (e) => {
 				e.preventDefault();
 				document.querySelector('.rename-fog').classList.add('hide-fog');
-
-
 			});
-
 
 		};
 
-
-
-
 		if (document.querySelector('.All.folder') !== null) {
-
 			document.querySelectorAll('.All.folder').forEach(e => {
-
 				const linker = e.querySelector('a').getAttribute('href');
 				e.querySelector('img').insertAdjacentHTML('beforebegin', '<a href="' + linker + '" class="massive-folder-linker"><i class="uil uil-folder-open"></i></a>');
 
 				e.querySelector('img').remove();
 				e.querySelector('.imgthumb').remove();
-
-
-
 			});
 		};
-
-
-
-
 	};
 </script>
 
-
 <?php
 
+	if (isset($_POST['save-rename-massive'])) {
 
+		$oldDirMassive = '../data/uploads/' . $_POST['rename-massive-hide'];
+		$newDirMassive = '../data/uploads/' . $_POST['rename-massive'];
 
-if (isset($_POST['save-rename-massive'])) {
+		$afterNewDir = preg_replace('/\s+/', '-', $newDirMassive);
 
-	$oldDirMassive = '../data/uploads/' . $_POST['rename-massive-hide'];
-	$newDirMassive = '../data/uploads/' . $_POST['rename-massive'];
+		rename($oldDirMassive, $afterNewDir);
+		echo '<div class="massive-done">' . i18n_r("massiveAdmin/FILENOW") . $afterNewDir . '</div>';
 
-	$afterNewDir = preg_replace('/\s+/', '-', $newDirMassive);
-
-
-
-	rename($oldDirMassive, $afterNewDir);
-	echo '<div class="massive-done">' . i18n_r("massiveAdmin/FILENOW") . $afterNewDir . '</div>';
-
-	echo ("<meta http-equiv='refresh' content='1'>");
-}
-
-
-
-if (isset($_POST['copy-rename-massive'])) {
-	$fileIsHere = i18n_r("massiveAdmin/INFOERROR");
-
-	$oldDirMassive = '../data/uploads/' . $_POST['rename-massive-hide'];
-	$newDirMassive = '../data/uploads/' . $_POST['rename-massive'];
-
-	$afterNewDir = preg_replace('/\s+/', '-', $newDirMassive);
-
-	if (file_exists($afterNewDir) == 'true') {
-		echo '<div class="massive-error">' . $fileIsHere . '</div>';
-	} else {
-		copy($oldDirMassive, $afterNewDir);
 		echo ("<meta http-equiv='refresh' content='1'>");
-		echo '<div class="massive-done">' . i18n_r("massiveAdmin/INFOCOPY") . $afterNewDir . '</div>';
 	}
-};
 
+	if (isset($_POST['copy-rename-massive'])) {
+		$fileIsHere = i18n_r("massiveAdmin/INFOERROR");
 
+		$oldDirMassive = '../data/uploads/' . $_POST['rename-massive-hide'];
+		$newDirMassive = '../data/uploads/' . $_POST['rename-massive'];
 
+		$afterNewDir = preg_replace('/\s+/', '-', $newDirMassive);
 
+		if (file_exists($afterNewDir) == 'true') {
+			echo '<div class="massive-error">' . $fileIsHere . '</div>';
+		} else {
+			copy($oldDirMassive, $afterNewDir);
+			echo ("<meta http-equiv='refresh' content='1'>");
+			echo '<div class="massive-done">' . i18n_r("massiveAdmin/INFOCOPY") . $afterNewDir . '</div>';
+		}
+	};
 ?>
-
 
 <script>
 	document.querySelectorAll('.imgthumb').forEach(x => {
-
 		if (x.innerHTML == '') {
-
-
-			x.innerHTML = `<div class="massive-folder-linker"><i class="uil uil-file" style="  font-size: 4rem;
-  display: block;
-  margin-bottom: 15px;"></i></div>`;
-
+			x.innerHTML = `<div class="massive-folder-linker"><i class="uil uil-file" style="font-size: 4rem; display: block; margin-bottom: 15px;"></i></div>`;
 		}
-
-
 	});
 
-
-
 	document.querySelectorAll('.all').forEach(c => {
-
 		if (c.querySelector('.primarylink img') !== null) {
 			c.querySelector('.primarylink img').style.display = "none";
 		}
-
-
 	})
 </script>
-
-
-
-
-
 
 <div style="width:100%;padding:5px;background:var(--main-color);margin-bottom:10px;">
 	<form method="post">
 		<textarea style="display:none;" class="delFileList" name="delFileList"></textarea>
 		<button class="delOn" style="border:solid 1px #fff;margin: 6px 5px; background: rgba(0,0,0,0.8); 
-		color: rgb(255, 255, 255);   border-radius: 5px; padding: 5px; cursor: pointer;">
-			delete multiple files
-		</button>
-		<button class="delAll" style="margin: 6px 5px; background: red; color: rgb(255, 255, 255); border: medium none; border-radius: 5px; padding: 5px; cursor: pointer;">select all</button>
+		color: rgb(255, 255, 255);   border-radius: 5px; padding: 5px; cursor: pointer;">Delete Multiple Files</button>
+		<button class="delAll" style="margin: 6px 5px; background: red; color: rgb(255, 255, 255); border: medium none; border-radius: 5px; padding: 5px; cursor: pointer;">Select All</button>
 		<input type="submit" onclick="return confirm('Are you sure you want to delete this items?');" class="delNow" style="margin: 6px 5px; background: red; color: rgb(255, 255, 255); border: medium none; border-radius: 5px; padding: 5px; cursor: pointer;" name="deleteFileList" value="delete">
 	</form>
 </div>
-
 
 <script>
 	let delOn = document.querySelector('.delOn');
@@ -422,19 +316,14 @@ if (isset($_POST['copy-rename-massive'])) {
 <input type="checkbox" class="delCheck" onclick="addToTextarea(this)" data-index="${indexDel++}" data-value="${value.replace('../data/uploads/','')}" style="margin-bottom:5px;">
 `);
 			});
-
-
-
-
 		};
 
 		deleteOn = 'on';
 	});
+	
 	const delArray = [];
 
 	function addToTextarea(item) {
-
-
 		if (item.checked == true) {
 			delArray.push(item.getAttribute('data-value'));
 			document.querySelector('.delFileList').innerHTML = delArray.toString();
@@ -442,7 +331,6 @@ if (isset($_POST['copy-rename-massive'])) {
 			delArray.splice(item.getAttribute('data-index'), 1);
 			document.querySelector('.delFileList').innerHTML = delArray.toString();
 		}
-
 	}
 
 	document.querySelector('.delAll').addEventListener('click', (c) => {
@@ -457,22 +345,16 @@ if (isset($_POST['copy-rename-massive'])) {
 	})
 </script>
 
-
 <?php
 
 if (isset($_POST['deleteFileList'])) {
-
 	$list = $_POST['delFileList'];
-
 	$ar = explode(",", $list);
-
 	foreach ($ar as $key => $value) {
 		unlink(GSDATAUPLOADPATH . $value);
 		echo ("
-<meta http-equiv='refresh' content='1'>");
+		<meta http-equiv='refresh' content='1'>");
 	}
 };
 
 ?>
-
-
