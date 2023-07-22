@@ -1,32 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css");
+ 
 
-:root{
-	--main-color:#00162a;
-}
+ :root{
+	--main-color:#CF3805
+ }
+
 
 *,
 *::after,
 *::before {
 	box-sizing: border-box;
 }
-
-body {
-	background: #f4f5f6;
-	font-family: "Lato", sans-serif;
-	font-size: 0.9rem;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: "Lato", sans-serif;
-	color: var(--main-color);
-	font-style: unset;
-}
+ 
+ 
 
 .wrapper {
 	max-width: 1240px;
@@ -45,15 +30,7 @@ h6 {
 	}
 }
 
-#header {
-	background: var(--main-color);
-}
-
-#header h1 {
-	font-family: unset;
-	font-size: 1.4rem;
-}
-
+ 
 #header .wrapper {
 	height: 110px;
 }
@@ -88,13 +65,16 @@ h6 {
 		position: relative;
 		height: auto;
 	}
+
 	#header #header h1 {
 		display: none !important;
 	}
+
 	#header>.wrapper {
 		position: relative;
 		height: auto;
 	}
+
 	#header .nav {
 		position: absolute;
 		top: 0;
@@ -194,8 +174,7 @@ h6 {
 }
 
 #sidebar .snav li a.current {
-	background: var(--main-color) !important;
-	color: #fff;
+ 	color: #fff;
 	border-right: solid var(--main-color) 2px;
 	transition: all 250ms linear;
 	border-radius: 5px;
@@ -209,8 +188,7 @@ h6 {
 }
 
 h3.floated {
-	color: var(--main-color) !important;
-	font-style: unset;
+ 	font-style: unset;
 	font-family: "o";
 	font-family: "Lato", sans-serif;
 }
@@ -281,15 +259,7 @@ td.delete a {
 	}
 }
 
-input.submit,
-.button {
-	color: #ffffff !important;
-	text-decoration: none;
-	text-shadow: none !important;
-	background: var(--main-color) !important;
-	border-radius: 5px !important;
-	border: none !important;
-}
+
 
 .toper {
 	width: 100%;
@@ -573,6 +543,7 @@ tr .linker {
 		flex-direction: column;
 		position: unset;
 	}
+
 	#header .nav a {
 		border-radius: 5px;
 		margin: 10px 0;
@@ -597,6 +568,7 @@ tr .linker {
 		cursor: pointer;
 		transition: all 250ms linear;
 	}
+
 	.rwd:hover {
 		background-color: #fff;
 		color: var(--main-color);
@@ -615,6 +587,7 @@ tr .linker {
 }
 
 @media (max-width: 992px) {
+
 	#metadata_toggle,
 	.edit-nav a {
 		width: 100%;
@@ -643,6 +616,7 @@ tr .linker {
 	#editpages tr:nth-child(1) {
 		display: none !important;
 	}
+
 	#editpages tr td:nth-child(2) {
 		display: none;
 	}
@@ -656,8 +630,8 @@ tr .linker {
 
 body#index,
 body#resetpassword {
-	background-color: var(--main-color);
-	background-image: url("https://picsum.photos/1600/900/?blur");
+	background-color: #fff;
+	background-image: url("https://picsum.photos/1600/900/?grayscale");
 	background-size: cover;
 	background-position: center center;
 }
@@ -709,12 +683,14 @@ body#resetpassword #maincontent .main {
 }
 
 @media (max-width: 768px) {
+
 	body#index #maincontent .main,
 	body#index #maincontent .main,
 	body#resetpassword #maincontent .main,
 	body#resetpassword #maincontent .main {
 		width: 100%;
 	}
+
 	body#index #maincontent .main .login,
 	body#index #maincontent .main .login,
 	body#resetpassword #maincontent .main .login,
@@ -722,6 +698,7 @@ body#resetpassword #maincontent .main {
 		width: 80%;
 		margin: 0 auto !important;
 	}
+
 	body#index #maincontent .main input,
 	body#index #maincontent .main input,
 	body#resetpassword #maincontent .main input,
@@ -735,7 +712,10 @@ body#resetpassword #maincontent .main {
 	align-items: center;
 }
 
-#resetpassword form input.text, #index form input.text {width: 210px;}
+#resetpassword form input.text,
+#index form input.text {
+	width: 210px;
+}
 
 .greater {
 	padding: 14px;
@@ -834,6 +814,7 @@ body#resetpassword #maincontent .main {
 	from {
 		opacity: 1;
 	}
+
 	to {
 		opacity: 0;
 	}
@@ -894,7 +875,7 @@ body#resetpassword #maincontent .main {
 	justify-content: space-between;
 	width: 100%;
 	padding: 10px;
-	  padding-left: 10px;
+	padding-left: 10px;
 	padding-left: 5px;
 	background: #fafafa;
 	border: solid 1px #ddd;
@@ -917,6 +898,18 @@ body#resetpassword #maincontent .main {
 }
 
 .CodeMirror {
-	resize: both;
-	overflow: auto;
+	resize: vertical;
+	overflow: hidden;
 }
+
+#footer{
+	text-shadow:none ;
+}
+
+.copybutton { display: inline-block; position: relative; vertical-align: middle; }
+.copybutton img { transition: transform 0.3s; width:22px; }
+.copybutton:hover img { transform: scale(1.2); }
+.copybutton:active img { transform: scale(0.8); }
+.shortcode{font-size:small; background-color:#f1f1f1; padding:3px 5px; border:1px solid #B2B2B2; margin-right:5px; border-radius: 5px;}
+.tpl{color:royalblue !important;}
+.cke{color:hotpink !important;}
