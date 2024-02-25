@@ -54,7 +54,7 @@ body#backups .wrapper table tr#tr-index a::before {content: normal !important;}
 .Audio .massive-folder-linker svg{transform: rotate(15deg); width:80px !important;}
 .Misc .massive-folder-linker {background:Plum!important;}
 .Misc .massive-folder-linker svg{transform: rotate(15deg); width:80px !important;}
-.Vector .massive-folder-linker {background:darkslateblue!important;}
+.Vector .massive-folder-linker {background:mediumpurple!important;}
 .Vector .massive-folder-linker svg{transform: rotate(15deg); width:80px !important;}
 
 #createfolder{text-decoration:none !important;font-weight:bold;}
