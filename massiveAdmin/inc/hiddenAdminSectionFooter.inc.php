@@ -3,7 +3,6 @@ global $USR;
 
 $clean_login = preg_replace('/[^a-zA-Z0-9\s]/', '', $USR);
 
-
 $massiveHiddenSection = GSDATAOTHERPATH . '/massiveHiddenSection/';
 $filejson = $clean_login . '.json';
 $finaljson = $massiveHiddenSection . $filejson;
