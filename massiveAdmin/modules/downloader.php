@@ -4,7 +4,7 @@
 </style>
 
 <h3 style="margin-bottom:0;">Plugin Downloader</h3>
-<a href="https://getsimplecms-ce-plugins.github.io/" target="_blank" style="margin-bottom:20px;margin-top:10px;display:block;"><?php echo i18n_r('massiveAdmin/DOWNLOADERBASED'); ?></a>
+<a href="https://getsimple-ce.ovh/ce-plugins/" target="_blank" style="margin-bottom:20px;margin-top:10px;display:block;"><?php echo i18n_r('massiveAdmin/DOWNLOADERBASED'); ?></a>
 
 <input type="text" class="searchce" placeholder="<?php echo i18n_r('massiveAdmin/SEARCHPLUGIN'); ?>">
 <?php
