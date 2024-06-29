@@ -42,4 +42,5 @@ if (isset($_POST['replaceMassiveUrl'])) {
 	<div class="doneMassive" style="background:green; width:100%; text-align:center; padding:10px; border-radius:3px; color:#fff;">Done</div>';
 
 	echo ("<meta http-equiv='refresh' content='1'>");
-}; ?>
+}; 
+?>

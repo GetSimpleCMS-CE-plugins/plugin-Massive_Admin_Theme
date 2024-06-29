@@ -1,11 +1,9 @@
 <?php
 
-class MassiveAdminClass
-{
+class MassiveAdminClass{
 
 	/* massive Options */
-	public function deleteFileList()
-	{
+	public function deleteFileList(){
 		$list = $_POST['delFileList'];
 		$ar = explode(",", $list);
 		foreach ($ar as $key => $value) {
@@ -14,8 +12,7 @@ class MassiveAdminClass
 		};
 	}
 
-	public function copyRename()
-	{
+	public function copyRename(){
 		$fileIsHere = i18n_r("massiveAdmin/INFOERROR");
 
 		$oldDirMassive = '../data/uploads/' . $_POST['rename-massive-hide'];
@@ -32,8 +29,7 @@ class MassiveAdminClass
 		}
 	}
 
-	public function saveRename()
-	{
+	public function saveRename(){
 		$oldDirMassive = '../data/uploads/' . $_POST['rename-massive-hide'];
 		$newDirMassive = '../data/uploads/' . $_POST['rename-massive'];
 
@@ -44,10 +40,8 @@ class MassiveAdminClass
 		echo ("<meta http-equiv='refresh' content='1'>");
 	}
 
-
 	/* massive uploader */
-	public function massiveUpload()
-	{
+	public function massiveUpload(){
 		echo '
 		<li style="margin: 0 0 3px 0;" class="masive-uploader">
 			<h3>' . i18n_r("massiveAdmin/UPLOADFILE") . '</h3>
@@ -75,14 +69,12 @@ class MassiveAdminClass
 	}
 
 	/* composite on page */
-	public function compositeOnPage()
-	{
+	public function compositeOnPage(){
 		echo '<li><a href="components.php" class="compmassive">' . i18n_r("massiveAdmin/EDITCOMPONENTS") . '</a> </li>';
 	}
 
 	/*massive option file */
-	public function massiveFile()
-	{
+	public function massiveFile(){
 		global $SITEURL;
 		global $massiveOptionFileContent;
 		$newmassiveOptionFile = json_decode($massiveOptionFileContent);
@@ -99,11 +91,8 @@ class MassiveAdminClass
 
 	/* massive header and icon */
 
-	public function massiveHead()
-	{
+	public function massiveHead(){
 		global $SITEURL;
-
-
 		echo '<link rel="stylesheet" href="' . $SITEURL . 'plugins/massiveAdmin/css/massiveIcons.css">';
 		echo ' <meta name="viewport" content="width=device-width, initial-scale=1.0">';
 		$massiveOptionFile = GSDATAOTHERPATH . '/massiveadmin/massiveOption.json';
@@ -112,14 +101,12 @@ class MassiveAdminClass
 	}
 
 	/* codeMirror edit */
-	public function codeMirror()
-	{
+	public function codeMirror(){
 		echo '<script>if(document.querySelector(".CodeMirror")!==null){document.querySelector(".CodeMirror textarea").filter="invert(20%)"}</script>';
 	}
 
 	/* HELPINFO - DESK */
-	public function saveHelpInfo()
-	{
+	public function saveHelpInfo(){
 		$folder		= GSDATAOTHERPATH . '/massiveHelpDesk/';
 		$filename	  = $folder . 'helpdesk.json';
 		$chmod_mode	= 0755;
@@ -148,8 +135,7 @@ class MassiveAdminClass
 	}
 
 	/* massiveOption Save Option */
-	public function saveMassiveOption()
-	{
+	public function saveMassiveOption(){
 		// Set up the data
 		$grid = $_POST["grid"];
 		$gridfront = $_POST["gridfront"];
@@ -183,10 +169,8 @@ class MassiveAdminClass
 		/* hideAdminSection */
 	}
 
-	public function saveCreateUser()
-	{
+	public function saveCreateUser(){
 		$newposUser = $_POST['createuserhidden'];
-
 		$newposUserwithspace = str_replace(' ', '-', $newposUser);
 		$supportUserMailMonkey = str_replace('@', '', $newposUserwithspace);
 		$supportUserMailFinal = str_replace('.', '', $supportUserMailMonkey);
@@ -205,10 +189,7 @@ class MassiveAdminClass
 		echo ("<meta http-equiv='refresh' content='0'>");
 	}
 
-
-	public function saveChangedUser()
-	{
-
+	public function saveChangedUser(){
 		$file = file_get_contents(GSUSERSPATH . $_POST['nameuser'] . '.xml');
 		$data = new SimpleXMLElement(file_get_contents(GSUSERSPATH . $_POST['nameuser'] . '.xml'));
 		$oldPWD = $data->PWD[0];
@@ -227,7 +208,6 @@ class MassiveAdminClass
 			$file = str_replace($oldLANG, $newLANG, $file);
 		};
 
-
 		if ($newPWD !== '') {
 			$passhash = passhash($newePWD);
 			$file = str_replace($oldPWD, $passhash, $file);
@@ -238,8 +218,7 @@ class MassiveAdminClass
 		echo ("<meta http-equiv='refresh' content='0'>");
 	}
 
-	public function userList()
-	{
+	public function userList(){
 		$files = glob(GSUSERSPATH . "*.xml");
 
 		foreach ($files as &$value) {
@@ -274,9 +253,7 @@ class MassiveAdminClass
 ';
 
 			foreach (glob(GSLANGPATH . '*.php') as $lang) {
-
 				$pureLang = pathinfo($lang)['filename'];
-
 				echo '<option value="' . $pureLang . '" ' . ($usrLangFile == $pureLang  ? 'selected' : '') . '>' . $pureLang  . '</option>';
 			};
 
@@ -286,9 +263,7 @@ class MassiveAdminClass
 <input type="submit" value="' . i18n_r("massiveAdmin/SAVEOPTION") . '" style="background:var(--main-color); width:200px;color:#fff;border-radius:5px;border:none" name="changeuser-' . $newValue . '">
 
 </form>
-
 			</li>';
-
 
 			if (isset($_POST['changeuser-' . $newValue])) {
 				$this->saveChangedUser();
@@ -302,8 +277,7 @@ class MassiveAdminClass
 		};
 	}
 
-	public function submitHideAdminSection()
-	{
+	public function submitHideAdminSection(){
 		$hidefiles = $_POST['hidefiles'];
 		$hidebackup = $_POST['hidebackup'];
 		$hidethemes = $_POST['hidethemes'];
@@ -337,8 +311,7 @@ class MassiveAdminClass
 	}
 
 	/* menu ext */
-	public function createLinkMenuExt()
-	{
+	public function createLinkMenuExt(){
 		$folder		= GSDATAOTHERPATH . 'massiveMenuExt/';
 		$filename	  = $folder . 'menuext.json';
 		$chmod_mode	= 0755;
@@ -361,10 +334,8 @@ class MassiveAdminClass
 	}
 
 	/* migrate & SSL */
-	public function migrateMassive()
-	{
+	public function migrateMassive(){
 		foreach (glob(GSDATAPATH . '{,*/,*/*/,*/*/*/}*.xml', GLOB_BRACE) as $file) {
-
 			$old = $_POST['oldMassiveUrl'];
 			$replace = $_POST['newMassiveUrl'];
 			$content = file_get_contents($file);
@@ -373,8 +344,7 @@ class MassiveAdminClass
 		}
 	}
 
-	public function forceSSL()
-	{
+	public function forceSSL(){
 		$file = GSDATAOTHERPATH . 'MassiveForceSSL/';
 		$status = $file . 'status.txt';
 
@@ -409,8 +379,7 @@ class MassiveAdminClass
 	}
 
 	// showPassword option 
-	public function showPassword()
-	{
+	public function showPassword(){
 		$file = GSDATAOTHERPATH . 'MassiveShowPassword/';
 		$status = $file . 'status.txt';
 
@@ -423,8 +392,7 @@ class MassiveAdminClass
 	}
 
 	// remove forget password
-	public function removeForgetPassword()
-	{
+	public function removeForgetPassword(){
 		$file = GSDATAOTHERPATH . 'MassiveShowForgetPassword/';
 		$status = $file . 'status.txt';
 
@@ -437,8 +405,7 @@ class MassiveAdminClass
 	}
 
 	// show button password front
-	public function showIndexOption()
-	{
+	public function showIndexOption(){
 		$file = @file_get_contents(GSDATAOTHERPATH . 'MassiveShowPassword/status.txt');
 		$file2 = @file_get_contents(GSDATAOTHERPATH . 'MassiveShowForgetPassword/status.txt');
 
@@ -473,8 +440,7 @@ class MassiveAdminClass
 	}
 
 	//download plugin 
-	public function downloadPlugin()
-	{
+	public function downloadPlugin(){
 		function delete_directory($dirname)
 		{
 			if (is_dir($dirname))
@@ -524,13 +490,10 @@ class MassiveAdminClass
 	}
 
 	// remover
-
-	public function unistaller()
-	{
+	public function unistaller(){
 		$delPlug = $_GET['delPlugin'];
 
-		function delete_directory($dirname)
-		{
+		function delete_directory($dirname){
 			if (file_exists($dirname)) {
 				if (is_dir($dirname))
 					$dir_handle = opendir($dirname);
@@ -572,8 +535,7 @@ class MassiveAdminClass
 	}
 
 	// snippet save
-	public function snippetSave()
-	{
+	public function snippetSave(){
 		$title = $_POST['snippetTitle'];
 		$content = $_POST['content'];
 		$fileFolder = GSDATAOTHERPATH . 'snippetMassive/';
@@ -600,11 +562,8 @@ class MassiveAdminClass
 	}
 
 	// codemirror components
-	public function ComponentsCodeMirror()
-	{
+	public function ComponentsCodeMirror(){
 		global $SITEURL;
-
-
 		echo '
 		<script src="' . $SITEURL . 'plugins/massiveAdmin/js/codemirror.min.js" integrity="sha512-8RnEqURPUc5aqFEN04aQEiPlSAdE0jlFS/9iGgUyNtwFnSKCXhmB6ZTNl7LnDtDWKabJIASzXrzD0K+LYexU9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<link rel="stylesheet" href="' . $SITEURL . 'plugins/massiveAdmin/css/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -647,16 +606,12 @@ class MassiveAdminClass
 	}
 
 	// gsconfig edit
-	public function gsConfigEdit()
-	{
+	public function gsConfigEdit(){
 		file_put_contents(GSROOTPATH . 'gsconfig.php', $_POST['content']);
 	}
 
-
 	//create option for toper
-
-	public function mtoperSetting()
-	{
+	public function mtoperSetting(){
 		global $mtoperSettingPath;
 		$mtoperSettingPath = GSDATAOTHERPATH . 'massiveToperSettings/';
 
@@ -671,13 +626,9 @@ class MassiveAdminClass
 		echo ("<meta http-equiv='refresh' content='0'>");
 	}
 
-
-	public function createBackupZip()
-	{
-
+	public function createBackupZip(){
 		$folderPath = $_POST['folder'];
 		$foldername = '';
-
 		if ($folderPath == GSDATAUPLOADPATH) {
 			$foldername = 'upload';
 		} elseif ($folderPath == GSPLUGINPATH) {
@@ -704,7 +655,6 @@ class MassiveAdminClass
 		$zip = new ZipArchive();
 
 		// Open the zip file for writing
-
 		if ($zip->open($zipFileName, ZipArchive::CREATE) === TRUE) {
 
 			// Add all files and folders from the specified folder
@@ -733,8 +683,7 @@ class MassiveAdminClass
 		echo ("<meta http-equiv='refresh' content='0'>");
 	}
 
-	public function deleteBackupZip()
-	{
+	public function deleteBackupZip(){
 		global $SITEURL;
 		global $GSADMIN;
 		unlink($_POST['delbackup']);

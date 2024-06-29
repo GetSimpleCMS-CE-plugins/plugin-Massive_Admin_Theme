@@ -62,7 +62,6 @@ if (file_exists($filename)) {
 	<script type="text/javascript" src="template/js/ckeditor/ckeditor.js"></script>
 
 	<?php
-
 	global $EDTOOL;
 	global $EDOPTIONS;
 
@@ -78,7 +77,6 @@ if (file_exists($filename)) {
 	}
 	$toolbar = isset($EDTOOL) ? ",toolbar: " . trim($EDTOOL, ",") : '';
 	$options = isset($EDOPTIONS) ? ',' . trim($EDOPTIONS, ",") : '';
-
 	?>
 
 	<script>

@@ -1,5 +1,3 @@
-<h3><?php echo i18n_r('massiveAdmin/UNISTALLER');?></h3>
-
 <style>
 	.plugin-uni{
 		display:grid;
@@ -28,22 +26,24 @@
 	}
 </style>
 
+<h3><?php echo i18n_r('massiveAdmin/UNISTALLER');?></h3>
+
 <ul class="plugin-uni">
-<?php 
-	global $GSADMIN;
-	global $SITEURL;
-	$url =  $SITEURL.$GSADMIN.'/load.php?id=massiveAdmin&unistaller';
+	<?php 
+		global $GSADMIN;
+		global $SITEURL;
+		$url =  $SITEURL.$GSADMIN.'/load.php?id=massiveAdmin&unistaller';
 
-	foreach( glob(GSPLUGINPATH.'*.php') as $file) {
+		foreach( glob(GSPLUGINPATH.'*.php') as $file) {
 
-	$filename = pathinfo($file)['filename'];
-		echo '
-		<li>
-			<p>'.$filename.'</p>
-			<a href="'.$url.'&delPlugin='.$filename.'" onclick="return confirm(`'.i18n_r('massiveAdmin/UNISTALLQUESTION').' '.$filename.'?`);">'.i18n_r('ASK_DELETE').'</a>
-		</li>';
-	};
-?>
+		$filename = pathinfo($file)['filename'];
+			echo '
+	<li>
+		<p>'.$filename.'</p>
+		<a href="'.$url.'&delPlugin='.$filename.'" onclick="return confirm(`'.i18n_r('massiveAdmin/UNISTALLQUESTION').' '.$filename.'?`);">'.i18n_r('ASK_DELETE').'</a>
+	</li>';
+		};
+	?>
 </ul>
 
 <script>
@@ -63,11 +63,12 @@
 			}
 		});
 	}
-
-	hideListItemsContainingWords(['&delPlugin=massiveAdmin', '&delPlugin=modernScript']);
+	hideListItemsContainingWords(['&delPlugin=massiveAdmin', '&delPlugin=modernScript', '&delPlugin=UpgradeCE']);
 </script>
 
-<?php if(isset($_GET['delPlugin'])){
+<?php
+if(isset($_GET['delPlugin'])){
     global $MA;
     $MA->unistaller();
-};?>
+};
+?>
