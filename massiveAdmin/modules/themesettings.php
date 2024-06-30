@@ -82,6 +82,10 @@
 	}
 </style>
 
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+
+<div class="w3-parent w3-container"><!-- Start Plug -->
+
 <h3>Theme Configurator</h3>
 
 <p style="background:#fafafa;border:solid 1px #ddd;padding:15px;"><?php echo i18n_r("massiveAdmin/HOWUSETHEMECONFIG");?>
@@ -107,25 +111,14 @@ if (file_exists(GSTHEMESPATH . $activeTemplate . '/settings.json')) {
 
 	foreach ($filx->settings as $key => $loop) {
 		if ($loop->type  == 'wysywig') {
-			echo '<p style="margin: 0;
-			margin:0;
-			margin-top: 20px;
-			font-weight: 400px;
-			font-size: 15px;
-			margin-bottom:5px;">' . $loop->title . ' :</p>
-	 
+			echo '<p style="margin: 0; margin:0; margin-top: 20px; font-weight: 400px; font-size: 15px; margin-bottom:5px;">' . $loop->title . ' :</p>
 			<textarea id="post-content" name="' . $key . '" style="width:100%;display:block;height:250px;" class="mbinput">' . html_entity_decode($loop->value) . '</textarea>
 			';
 		} elseif ($loop->type  == 'image') {
 			global $SITEURL;
 
 			echo '<span class="formedit">';
-			echo '<p style="margin: 0;
-				margin-top: 0px;
-				margin-top: 20px;
-				font-weight: 400px;
-				font-size: 15px;">' . $loop->title . ' :</p>
-
+			echo '<p style="margin: 0; margin-top: 0px; margin-top: 20px; font-weight: 400px; font-size: 15px;">' . $loop->title . ' :</p>
 				<div class="mb_img">';
 			if ($loop->value !== 'undefined') {
 				echo ' <img src="' . $loop->value . '" style="width:80px;height:80px;object-fit:cover;">';
@@ -143,12 +136,7 @@ if (file_exists(GSTHEMESPATH . $activeTemplate . '/settings.json')) {
 			global $SITEURL;
 
 			echo '<span class="formedit-file">';
-			echo '<p style="margin: 0;
-				margin-top: 0px;
-				margin-top: 20px;
-				font-weight: 400px;
-				font-size: 15px;">' . $loop->title . ' :</p>
-
+			echo '<p style="margin: 0; margin-top: 0px; margin-top: 20px; font-weight: 400px; font-size: 15px;">' . $loop->title . ' :</p>
 				<div class="mb_file">';
 
 			echo '
@@ -161,16 +149,11 @@ if (file_exists(GSTHEMESPATH . $activeTemplate . '/settings.json')) {
 			echo "</span>";
 		} elseif ($loop->type  == 'textarea') {
 			echo '<p style="margin: 0; margin-top: 0px; margin-top: 20px; font-weight: 400px; font-size: 15px;display:inline-block;">' . $loop->title . ' :</p>.
-			
 			<textarea class="mbinput" style="width:100%;height:250px;" name="' . $key . '" >' . html_entity_decode($loop->value) . '</textarea>';
 		} elseif ($loop->type  == 'dropdown') {
 			$ars = explode('||', $loop->options);
 
-			echo '<p style="margin: 0;
-			margin-top: 0px;
-			margin-top: 20px;
-			font-weight: 400px;
-			font-size: 15px;display:inline-block;">' . $loop->title . ' :</p>';
+			echo '<p style="margin: 0; margin-top: 0px; margin-top: 20px; font-weight: 400px; font-size: 15px;display:inline-block;">' . $loop->title . ' :</p>';
 
 			echo '<select style="width:100%;padding:10px;" class="' . $key . '" name="' . $key . '">';
 
@@ -200,12 +183,7 @@ if (file_exists(GSTHEMESPATH . $activeTemplate . '/settings.json')) {
 			echo '<script> document.querySelector("select.' . $key . '").value = "' . $loop->value . '"; </script>';
 		} else {
 
-			echo '<p style="margin: 0;
-			margin:0;
-			margin-top: 20px;
-			font-weight: 400px;
-			font-size: 15px;">' . $loop->title . ' :</p>
-
+			echo '<p style="margin: 0; margin:0; margin-top: 20px; font-weight: 400px; font-size: 15px;">' . $loop->title . ' :</p>
 			<input   type="' . $loop->type . '" name="' . $key . '" value="' . html_entity_decode($loop->value ?? '') . '">
 			';
 		}

@@ -2,6 +2,33 @@
 $fileOptionCheck = @file_get_contents( GSDATAOTHERPATH.'massiveTheme/option.txt');
 ?>
 
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+
+<div class="w3-parent w3-container"><!-- Start Plug -->
+
+<?php 
+if(isset($_POST['save'])){
+	$folder =GSDATAOTHERPATH.'massiveTheme/';
+	if(!file_exists($folder)){
+	mkdir($folder,0755);
+	}
+
+	file_put_contents($folder.'option.txt',$_POST['theme']);
+
+	echo '
+	<div style="width:100%; background:var(--main-color); padding:10px; border-radius:5px; color:#fff; margin-top:20px; display:block;" class="done-info">Done! You choose the <b style="text-transform: uppercase;">"'.$_POST['theme'].'"</b> Theme</div><meta http-equiv=\'refresh\' content=\'3; url=load.php?id=massiveAdmin&themeselector\'>';
+
+	echo '
+	<script>
+		document.querySelector(`select[name="theme"]`).value = "'.$fileOptionCheck.'"
+
+		setTimeout(function(){
+			document.querySelector(".done-info").style.display="none";
+		},3000)
+	</script>';
+};
+?>
+
 <form method="POST">
 	<h3>Admin Theme Selector</h3>
 
@@ -16,26 +43,3 @@ $fileOptionCheck = @file_get_contents( GSDATAOTHERPATH.'massiveTheme/option.txt'
 
 	<input type="submit" class="submit" style="margin-top:20px;" name="save">
 </form>
-
-<?php 
-if(isset($_POST['save'])){
-	$folder =GSDATAOTHERPATH.'massiveTheme/';
-	if(!file_exists($folder)){
-	mkdir($folder,0755);
-	}
-
-	file_put_contents($folder.'option.txt',$_POST['theme']);
-
-	echo '
-	<div style="width:100%; background:var(--main-color); padding:10px; border-radius:5px; color:#fff; margin-top:20px; display:block;" class="done-info">Done! You choose the <b style="text-transform: uppercase;">"'.$_POST['theme'].'"</b> Theme</div><meta http-equiv=\'refresh\' content=\'3; url=settings.php\'>';
-
-	echo '
-	<script>
-		document.querySelector(`select[name="theme"]`).value = "'.$fileOptionCheck.'"
-
-		setTimeout(function(){
-			document.querySelector(".done-info").style.display="none";
-		},3000)
-	</script>';
-};
-?>

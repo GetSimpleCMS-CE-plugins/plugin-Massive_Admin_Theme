@@ -13,6 +13,10 @@ if (file_exists($filename)) {
 	@import url('<?php echo $SITEURL; ?>plugins/massiveAdmin/css/massiveOption.css');
 </style>
 
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+
+<div class="w3-parent w3-container"><!-- Start Plug -->
+
 <div class="massiveoption">
 
 	<div class="hidetitle" id="hidetitle1">

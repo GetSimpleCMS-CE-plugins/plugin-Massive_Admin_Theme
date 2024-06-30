@@ -1,5 +1,9 @@
 <?php global $SITEURL; ?>
 
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+
+<div class="w3-parent w3-container"><!-- Start Plug -->
+
 <form action="#" method="POST" style="border:solid 1px #ddd;background:#fafafa;padding:10px;box-sizing:border-box;">
 	<h3><?php echo i18n_r('massiveAdmin/MIGRATEDOMAIN'); ?></h3>
 	<hr>

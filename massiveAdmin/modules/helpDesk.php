@@ -25,6 +25,10 @@ $options = isset($EDOPTIONS) ? ','.trim($EDOPTIONS,",") : '';
 
 <?php error_reporting(E_ALL ^ E_NOTICE); ?>
 
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+
+<div class="w3-parent w3-container"><!-- Start Plug -->
+
 <h3><?php echo i18n_r('massiveAdmin/USERHELPTITLE'); ?></h3>
 
 <form action="#" method="POST">

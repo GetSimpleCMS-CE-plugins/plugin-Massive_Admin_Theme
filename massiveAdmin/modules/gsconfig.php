@@ -9,6 +9,10 @@
 	.CodeMirror {font-size: 15px;width: 100%, ;height: 500px;}
 </style>
 
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+
+<div class="w3-parent w3-container"><!-- Start Plug -->
+
 <form action="#" method="Post" style="background:#fafafa;border:solid 1px #ddd;padding:10px;box-sizing:border-box;">
 	<h3><?php echo i18n_r('massiveAdmin/GSCONFIGTITLE'); ?></h3>
 	<hr>

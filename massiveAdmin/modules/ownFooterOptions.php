@@ -32,6 +32,10 @@ $data = json_decode($datee);; ?>
 	}
 </style>
 
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+
+<div class="w3-parent w3-container"><!-- Start Plug -->
+
 <h3><?php echo i18n_r('massiveAdmin/OWNFOOTERTITLE'); ?></h3>
 
 <form id="ownfooterform" action="#" method="POST" enctype="multipart/form-data">

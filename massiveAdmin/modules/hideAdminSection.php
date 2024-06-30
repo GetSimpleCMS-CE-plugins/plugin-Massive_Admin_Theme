@@ -4,6 +4,10 @@ global $SITEURL;; ?>
 	@import url('<?php echo $SITEURL; ?>plugins/massiveAdmin/css/hideAdminSection.css');
 </style>
 
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+
+<div class="w3-parent w3-container"><!-- Start Plug -->
+
 <div>
 	<div class="hidetitle" id="hidetitle3">
 		<h3><?php echo i18n_r("massiveAdmin/CREATENEWUSER"); ?></h3>

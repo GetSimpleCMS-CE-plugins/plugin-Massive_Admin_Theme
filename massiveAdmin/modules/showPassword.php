@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+
+<div class="w3-parent w3-container"><!-- Start Plug -->
+
 <form action="#" method="post" style="padding:10px;background:#fafafa;border:solid 1px #ddd;box-sizing:border-box;">
 	<h3><?php echo  i18n_r('massiveAdmin/TURNONSHOWPASSWORDTITLE'); ?></h3>
 	<hr>

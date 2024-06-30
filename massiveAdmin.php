@@ -386,9 +386,13 @@ function massiveOption(){
 		include(GSPLUGINPATH . 'massiveAdmin/modules/themesettings.php');
 	};;
 
-	echo "
-	<style>.kofitext,.kofi-button{text-decoration:none !important}</style>
-	<div style='margin:20px 0;width:100%;' class='kofi'>
-		<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'I3I2RHQZS');kofiwidget2.draw();</script>
-	</div> ";
+	echo '
+	<hr>
+	
+	<div style="margin:20px 0;width:100%;" class="kofi">
+		<style>.kofitext,.kofi-button{text-decoration:none !important}</style>
+		<script type="text/javascript" src="https://storage.ko-fi.com/cdn/widget/Widget_2.js"></script>
+		<script type="text/javascript">kofiwidget2.init(\'Support Me on Ko-fi\', \'#29abe0\', \'I3I2RHQZS\');kofiwidget2.draw();</script>
+	</div>
+</div><!-- End Plug -->';
 };

@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+
+<div class="w3-parent w3-container"><!-- Start Plug -->
+
 <h3 class="floated"><?php echo i18n_r('massiveAdmin/EDITSNIPPET'); ?></h3>
 
 <div class="edit-nav">

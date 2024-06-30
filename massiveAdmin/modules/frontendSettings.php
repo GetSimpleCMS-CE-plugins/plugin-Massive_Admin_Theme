@@ -3,6 +3,10 @@ $checkTurnOn = @file_get_contents(GSDATAOTHERPATH . 'massiveToperSettings/turnon
 $styleFile = @file_get_contents(GSDATAOTHERPATH . 'massiveToperSettings/style.txt');
 ?>
 
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+
+<div class="w3-parent w3-container"><!-- Start Plug -->
+
 <form action="#" method="POST">
 	<h3>FrontEnd Settings</h3>
 	<label for="" style="display:flex;flex-direction:row;justify-content:space-between"><?php echo i18n_r("massiveAdmin/TURNONMTOPER"); ?>
