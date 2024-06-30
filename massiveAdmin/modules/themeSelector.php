@@ -16,7 +16,11 @@ if(isset($_POST['save'])){
 	file_put_contents($folder.'option.txt',$_POST['theme']);
 
 	echo '
-	<div style="width:100%; background:var(--main-color); padding:10px; border-radius:5px; color:#fff; margin-top:20px; display:block;" class="done-info">Done! You choose the <b style="text-transform: uppercase;">"'.$_POST['theme'].'"</b> Theme</div><meta http-equiv=\'refresh\' content=\'3; url=load.php?id=massiveAdmin&themeselector\'>';
+	<div class="w3-panel w3-green done-info">
+		<h4 class="w3-text-white">Success!</h4>
+		<p style="font-size:1.2em">Updating to the <b style="text-transform: uppercase;">"'.$_POST['theme'].'"</b> theme.</p>
+	</div>
+	<meta http-equiv=\'refresh\' content=\'3; url=load.php?id=massiveAdmin&themeselector\'>';
 
 	echo '
 	<script>
@@ -29,10 +33,12 @@ if(isset($_POST['save'])){
 };
 ?>
 
-<form method="POST">
-	<h3>Admin Theme Selector</h3>
+<h3>Admin Theme Selector</h3>
+<hr>
 
-	<select name="theme" style="width:100%;padding:10px;border:solid 1px #ddd; background:#fff;">
+<form method="POST">
+
+	<select name="theme" class="w3-select w3-border" style="padding:10px;  width:98%">
 		<?php 
 			foreach(glob(GSPLUGINPATH.'massiveAdmin/theme/*.css') as $style){
 				$pure = pathinfo($style)['filename'];
@@ -40,6 +46,8 @@ if(isset($_POST['save'])){
 			};
 		?>
 	</select>
-
-	<input type="submit" class="submit" style="margin-top:20px;" name="save">
+	
+	<div class="w3-margin-top w3-center">
+		<button class="w3-btn w3-large w3-round-large w3-green" style="width:33.3%" type="submit" name="save"><?php echo i18n_r('massiveAdmin/SAVEOPTION'); ?></button>
+	</div>
 </form>

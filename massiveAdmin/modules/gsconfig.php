@@ -13,9 +13,10 @@
 
 <div class="w3-parent w3-container"><!-- Start Plug -->
 
-<form action="#" method="Post" style="background:#fafafa;border:solid 1px #ddd;padding:10px;box-sizing:border-box;">
-	<h3><?php echo i18n_r('massiveAdmin/GSCONFIGTITLE'); ?></h3>
-	<hr>
+<h3><?php echo i18n_r('massiveAdmin/GSCONFIGTITLE'); ?></h3>
+<hr>
+
+<form action="#" method="Post">
 	<textarea name="content" id="myTextarea" wrap='off'><?php echo file_get_contents(GSROOTPATH . 'gsconfig.php'); ?></textarea>
 
 	<script>
@@ -31,8 +32,10 @@
 			inlineDynamicImports: true
 		});
 	</script>
-
-	<input type="submit" name="editGSConfig" style="background:var(--main-color); color:#fff;padding:10px; margin-top:10px;border:none;" value="<?php echo i18n_r('massiveAdmin/GSCONFIGSAVE'); ?>">
+	
+	<div class="w3-center" style="margin-top:30px">
+		<button class="w3-btn w3-large w3-round-large w3-green" style="width:33.3%" type="submit" value="<?php echo i18n_r('massiveAdmin/GSCONFIGSAVE'); ?>" name="editGSConfig"><?php echo i18n_r('massiveAdmin/GSCONFIGSAVE'); ?></button>
+	</div>
 </form>
 
 <?php

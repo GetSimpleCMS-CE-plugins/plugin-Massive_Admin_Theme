@@ -31,9 +31,12 @@ $options = isset($EDOPTIONS) ? ','.trim($EDOPTIONS,",") : '';
 
 <h3><?php echo i18n_r('massiveAdmin/USERHELPTITLE'); ?></h3>
 
+<hr>
+
 <form action="#" method="POST">
-	<div style="background:#ddd; padding:15px; display:flex; aling-items:center; margin-bottom:10px; justify-content:space-between; border:solid 1px #111;">
-		<label for=""><?php echo i18n_r('massiveAdmin/TURNON'); ?></label> <input type="checkbox" name="checkbox" class="checkbox" value="true" style="margin-right:10px;">
+	<div class="w3-margin-bottom w3-padding-large w3-center w3-panel w3-deep-orange">
+		<label class="w3-text-white" style="font-weight:600; padding-right:20px"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
+		<input class="w3-check checkbox" style="margin-right:10px;" type="checkbox" name="checkbox" value="true">
 	</div>
 
 	<textarea name="helper" class="ckeditors">
@@ -43,7 +46,10 @@ if (file_exists($filename)) {
 };
 ?>
 	</textarea>
-	<input type="submit" value="<?php echo i18n_r('massiveAdmin/SAVEOPTION'); ?>" name="savehelpinfo" style="width: 100%; padding: 10px; margin-top: 20px; background: #000; color: #fff; border: none; border-radius: 5px;">
+	
+	<div class="w3-margin-top w3-center">
+		<button class="w3-btn w3-large w3-round-large w3-green" style="width:33.3%" type="submit" value="<?php echo i18n_r('massiveAdmin/SAVEOPTION'); ?>" name="savehelpinfo"><?php echo i18n_r('massiveAdmin/SAVEOPTION'); ?></button>
+	</div>
 </form>
 
 <script type="text/javascript" src="template/js/ckeditor/ckeditor.js"></script>

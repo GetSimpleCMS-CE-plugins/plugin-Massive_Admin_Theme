@@ -9,6 +9,6 @@ $data = json_decode($datee);
 <div class="w3-parent w3-container"><!-- Start Plug -->
 
 <h3><?php echo i18n_r('massiveAdmin/USERHELP');?></h3>
-<br>
+<hr>
 
 <?php echo $data->content;?>
