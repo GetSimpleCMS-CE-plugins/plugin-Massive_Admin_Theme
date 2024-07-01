@@ -16,7 +16,7 @@ if(isset($_POST['save'])){
 	file_put_contents($folder.'option.txt',$_POST['theme']);
 
 	echo '
-	<div class="w3-panel w3-green done-info">
+	<div class="w3-panel w3-green done-info w3-round">
 		<h4 class="w3-text-white">Success!</h4>
 		<p style="font-size:1.2em">Updating to the <b style="text-transform: uppercase;">"'.$_POST['theme'].'"</b> theme.</p>
 	</div>
