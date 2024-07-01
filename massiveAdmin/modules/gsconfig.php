@@ -1,7 +1,7 @@
 <?php global $SITEURL;?>
 
 <link rel="stylesheet" href="<?php echo $SITEURL; ?>plugins/massiveAdmin/css/codemirror.min.css" />
-<link rel="stylesheet" href="<?php echo $SITEURL; ?>plugins/massiveAdmin/css/rubyblue.min.css" />
+<link rel="stylesheet" href="<?php echo $SITEURL; ?>plugins/massiveAdmin/css/blackboard.min.css" />
 <script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/codemirror.min.js"></script>
 <script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/clike.min.js"></script>
 
@@ -21,7 +21,7 @@
 
 	<script>
 		var editor = CodeMirror.fromTextArea(document.querySelector('#myTextarea'), {
-			theme: "rubyblue",
+			theme: "blackboard",
 			lineNumbers: true,
 			matchBrackets: true,
 			indentUnit: 4,

@@ -42,7 +42,7 @@
 			}
 		});
 	}
-	hideListItemsContainingWords(['&delPlugin=massiveAdmin', '&delPlugin=modernScript', '&delPlugin=UpgradeCE']);
+	hideListItemsContainingWords(['&delPlugin=massiveAdmin', '&delPlugin=modernScript', '&delPlugin=UpgradeCE', '&delPlugin=gsconfigGUI']);
 </script>
 
 <?php
