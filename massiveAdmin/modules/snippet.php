@@ -45,7 +45,7 @@
 						</div>
 						
 						<div class="w3-half w3-right-align" style="width:46%">
-							<button xstyle="border-radius:5px; position:absolute; top:5px; right:10px; background:red; color:#fff; border:none;" onclick="event.preventDefault();closeThisSnippet(this)"> ✕ </button>
+							<button class="w3-bar-item w3-btn w3-red w3-round w3-right"  style="padding:0 5px; border:black solid 1px" onclick="event.preventDefault();closeThisSnippet(this)"><svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24" id="trash"><path fill="#fff" d="M20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Z"></path></svg></button></button>
 						</div>
 					</div>
 					
