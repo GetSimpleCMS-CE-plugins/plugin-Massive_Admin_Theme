@@ -12,23 +12,11 @@ $data = json_decode($datee);; ?>
 		border: solid 1px #ddd;
 		padding: 10px;
 	}
-
-	#ownfooterform input {
-		width: 100%;
-		padding: 5px;
-		margin: 10px 0;
-	}
-
 	#ownfooterform input[type="submit"] {
 		background: #000;
 		color: #fff;
 		border: none;
 		padding: 10px;
-	}
-
-	#ownfooterform input[type="checkbox"] {
-		all: revert;
-		padding: 0;
 	}
 </style>
 
@@ -37,12 +25,12 @@ $data = json_decode($datee);; ?>
 <div class="w3-parent w3-container"><!-- Start Plug -->
 
 <h3><?php echo i18n_r('massiveAdmin/OWNFOOTERTITLE'); ?></h3>
+<hr>
 
 <form id="ownfooterform" action="#" method="POST" enctype="multipart/form-data">
-
-	<div style="background:#ddd; padding:10px; display:flex; aling-items:center; margin-bottom:10px; justify-content:space-between; border:solid 1px #111;">
-		<label for="turnon" style="margin-top: 2px;"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
-		<input type="checkbox" name="turnon" class="checkbox" value="true">
+	<div class="w3-margin-bottom w3-padding-large w3-center w3-panel w3-gs-main w3-round">
+		<label class="w3-text-white" style="font-weight:600; padding-right:20px"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
+		<input class="w3-check checkbox" style="margin-right:10px;" type="checkbox" name="turnon" value="true">
 	</div>
 
 	<label for="ownfootername"><?php echo i18n_r('massiveAdmin/OWNFOOTERNAME'); ?> </label>

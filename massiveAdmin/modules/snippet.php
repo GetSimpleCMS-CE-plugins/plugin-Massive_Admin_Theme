@@ -36,7 +36,7 @@
 				$content = $file->content;
 				echo '
 				<div class="w3-container">
-					<div class="w3-row-padding w3-center w3-margin-bottom w3-padding-large w3-panel w3-deep-orange w3-round">
+					<div class="w3-row-padding w3-center w3-margin-bottom w3-padding-large w3-panel w3-gs-main w3-round">
 						<div class="w3-half w3-left-align">
 							<span class="shortcode tpl" id="' . $title . '">&#60;?php get_snippet("' . $title . '");?></span>
 							<a href="javascript:;" class="copybutton">

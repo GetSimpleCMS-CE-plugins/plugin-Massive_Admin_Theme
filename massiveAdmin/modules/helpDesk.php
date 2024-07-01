@@ -34,7 +34,7 @@ $options = isset($EDOPTIONS) ? ','.trim($EDOPTIONS,",") : '';
 <hr>
 
 <form action="#" method="POST">
-	<div class="w3-margin-bottom w3-padding-large w3-center w3-panel w3-deep-orange w3-round">
+	<div class="w3-margin-bottom w3-padding-large w3-center w3-panel w3-gs-main w3-round">
 		<label class="w3-text-white" style="font-weight:600; padding-right:20px"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
 		<input class="w3-check checkbox" style="margin-right:10px;" type="checkbox" name="checkbox" value="true">
 	</div>
