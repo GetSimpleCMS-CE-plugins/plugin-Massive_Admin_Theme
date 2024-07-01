@@ -1,26 +1,17 @@
 <?php
 $filename = GSDATAOTHERPATH . '/massiveOwnFooter/OwnFooter.json';
 $datee = @file_get_contents($filename);
-$data = json_decode($datee);; ?>
+$data = json_decode($datee); 
+?>
 
 <?php error_reporting(E_ALL ^ E_NOTICE); ?>
 
-<style>
-	#ownfooterform {
-		width: 100%;
-		background: #fafafa;
-		border: solid 1px #ddd;
-		padding: 10px;
-	}
-	#ownfooterform input[type="submit"] {
-		background: #000;
-		color: #fff;
-		border: none;
-		padding: 10px;
-	}
-</style>
-
 <link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+<style>
+	input::file-selector-button {background-color: var(--main-color); border:0; border-radius: 5px; color: #fff; padding: .75rem 1rem; margin:0 10px 20px 20px;}
+	input::file-selector-button:hover {box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
+	.CodeMirror {font-size: 15px; width: 100%; margin-top: 5px;}
+</style>
 
 <div class="w3-parent w3-container"><!-- Start Plug -->
 
@@ -32,24 +23,29 @@ $data = json_decode($datee);; ?>
 		<label class="w3-text-white" style="font-weight:600; padding-right:20px"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
 		<input class="w3-check checkbox" style="margin-right:10px;" type="checkbox" name="turnon" value="true">
 	</div>
-
-	<label for="ownfootername"><?php echo i18n_r('massiveAdmin/OWNFOOTERNAME'); ?> </label>
-	<input type="text" value="<?php echo $data->ownfootername ?? ''; ?>" name="ownfootername">
-
-	<label for="ownfootericon"><?php echo i18n_r('massiveAdmin/OWNFOOTERICON'); ?></label>
-	<input type="file" name="ownfootericon">
-
-	<label for="ownlogo"><?php echo i18n_r('massiveAdmin/OWNLOGO'); ?></label>
-
-	<select name="ownlogo" class="ownlogo" style="width:100%; padding:5px; margin:10px 0;"><br>
-		<option value="yes"><?php echo i18n_r('massiveAdmin/YES'); ?></option>
-		<option value="no"><?php echo i18n_r('massiveAdmin/NO'); ?></option>
-	</select>
-
-	<label for="ownfooterlink"><?php echo i18n_r('massiveAdmin/OWNFOOTERLINK'); ?></label>
-	<input type="text" value="<?php echo $data->ownfooterlink ?? ''; ?>" style="margin-top:10px;display:block;" name="ownfooterlink">
-
-	<br>
+	
+	<div class="w3-margin-bottom">
+		<label for="ownfootername"><?php echo i18n_r('massiveAdmin/OWNFOOTERNAME'); ?> </label>
+		<input class="w3-input w3-padding w3-border w3-round w3-margin-bottom" style="width:96%" type="text" value="<?php echo $data->ownfootername ?? ''; ?>" name="ownfootername">
+	</div>
+	
+	<div class="w3-margin-bottom">
+		<label for="ownfootericon"><?php echo i18n_r('massiveAdmin/OWNFOOTERICON'); ?></label>
+		<input class="w3-input" type="file" name="ownfootericon">
+	</div>
+	
+	<div class="w3-margin-bottom">
+		<label for="ownlogo"><?php echo i18n_r('massiveAdmin/OWNLOGO'); ?></label>
+		<select class="w3-select w3-padding w3-border ownlogo" style="width:96%" name="ownlogo"><br>
+			<option value="yes"><?php echo i18n_r('massiveAdmin/YES'); ?></option>
+			<option value="no"><?php echo i18n_r('massiveAdmin/NO'); ?></option>
+		</select>
+	</div>
+	
+	<div class="w3-margin-bottom">
+		<label for="ownfooterlink"><?php echo i18n_r('massiveAdmin/OWNFOOTERLINK'); ?></label>
+		<input class="w3-input w3-padding w3-border w3-round w3-margin-bottom" style="width:96%" type="text" value="<?php echo $data->ownfooterlink ?? ''; ?>" name="ownfooterlink">
+	</div>
 
 	<?php global $SITEURL; ?>
 
@@ -62,22 +58,16 @@ $data = json_decode($datee);; ?>
 	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/xml.min.js" integrity="sha512-LarNmzVokUmcA7aUDtqZ6oTS+YXmUKzpGdm8DxC46A6AHu+PQiYCUlwEGWidjVYMo/QXZMFMIadZtrkfApYp/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/htmlmixed.min.js" integrity="sha512-HN6cn6mIWeFJFwRN9yetDAMSh+AK9myHF1X9GlSlKmThaat65342Yw8wL7ITuaJnPioG0SYG09gy0qd5+s777w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/clike.min.js" integrity="sha512-l8ZIWnQ3XHPRG3MQ8+hT1OffRSTrFwrph1j1oc1Fzc9UKVGef5XN9fdO0vm3nW0PRgQ9LJgck6ciG59m69rvfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-	<style type="text/css">
-		.CodeMirror {
-			font-size: 15px;
-			width: 100%, ;
-			margin-top: 5px;
-		}
-	</style>
-
-	<label for="ownheader"><?php echo i18n_r('massiveAdmin/OWNFOOTERHEADER'); ?></label>
-	<textarea name="ownheader" id="ownheader" style="width:100%; height:200px; margin-top:10px; display:block;"><?php echo $data->ownheader ?? ''; ?></textarea>
-
-	<br>
-
-	<label for="ownfooter"><?php echo i18n_r('massiveAdmin/OWNFOOTERFOOTER'); ?></label>
-	<textarea name="ownfooter" id="ownfooter" style="width:100%; height:200px; margin-top:10px; display:block;"><?php echo $data->ownfooter ?? ''; ?></textarea>
+	
+	<div class="w3-margin-bottom">
+		<label for="ownheader"><?php echo i18n_r('massiveAdmin/OWNFOOTERHEADER'); ?></label>
+		<textarea name="ownheader" id="ownheader" style="width:100%; height:200px; margin-top:10px; display:block;"><?php echo $data->ownheader ?? ''; ?></textarea>
+	</div>
+	
+	<div class="w3-margin-bottom">
+		<label for="ownfooter"><?php echo i18n_r('massiveAdmin/OWNFOOTERFOOTER'); ?></label>
+		<textarea name="ownfooter" id="ownfooter" style="width:100%; height:200px; margin-top:10px; display:block;"><?php echo $data->ownfooter ?? ''; ?></textarea>
+	</div>
 
 	<script>
 		function editor(id) {
@@ -97,29 +87,31 @@ $data = json_decode($datee);; ?>
 		editor(ownfooter);
 	</script>
 
-	<br>
+	<div class="w3-container w3-margin-bottom" style="margin-top:70px">
+		<h4><?php echo i18n_r('massiveAdmin/CHANGETITLECOLOR'); ?>:</h4>
 
-	<label><?php echo i18n_r('massiveAdmin/CHANGETITLECOLOR'); ?></label>
-	<div class="colors" style="background:#ddd; padding:5px; display:flex; aling-items:center; margin:20px 0; justify-content:space-between; border:solid 1px #111; flex-wrap:wrap;">
-
-		<div class="colors-item" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:5px;">
-			<label for="turncolor"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
-			<input type="checkbox" class="turncolor" value="true" name="turncolor">
+		<div class="w3-margin-bottom w3-padding w3-center w3-panel w3-gray w3-round">
+			<label class="w3-text-white" style="font-weight:600; padding-right:20px" for="turncolor"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
+			<input class="w3-check turncolor" type="checkbox" value="true" name="turncolor">
 		</div>
+		
+		<div class="w3-row-padding w3-margin-bottom">
+			<div class="w3-half colors-item" style="width:46%; padding:15px;">
+				<label for="ownmaincolor"><?php echo i18n_r('massiveAdmin/MAINCOLOR'); ?></label>
+				<input class="w3-input" type="color" value="<?php echo $data->maincolor ?? ''; ?>" name="maincolor">
+			</div>
 
-		<div class="colors-item" style="width:50%;padding:10px;">
-			<label for="ownmaincolor"><?php echo i18n_r('massiveAdmin/MAINCOLOR'); ?></label>
-			<input type="color" value="<?php echo $data->maincolor ?? ''; ?>" name="maincolor">
+			<div class="w3-half colors-item" style="width:46%; padding:15px;">
+				<label for="ownmaincolor"><?php echo i18n_r('massiveAdmin/BGCOLOR'); ?></label>
+				<input class="w3-input" type="color" value="<?php echo $data->bgcolor ?? ''; ?>" name="bgcolor">
+			</div>
 		</div>
-
-		<div class="colors-item" style="width:50%;padding:10px;">
-			<label for="ownmaincolor"><?php echo i18n_r('massiveAdmin/BGCOLOR'); ?></label>
-			<input type="color" value="<?php echo $data->bgcolor ?? ''; ?>" name="bgcolor">
-		</div>
-
+		
 	</div>
-
-	<input type="submit" name="submit" value="<?php echo i18n_r('massiveAdmin/SAVEOPTION'); ?>">
+	
+	<div class="w3-margin-top w3-center">
+		<button class="w3-btn w3-large w3-round-large w3-green" style="width:33.3%" type="submit" name="submit"><?php echo i18n_r('massiveAdmin/SAVEOPTION'); ?></button>
+	</div>
 
 </form>
 
