@@ -1,6 +1,7 @@
 <?php global $SITEURL; ?>
 
 <link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 
 <div class="w3-parent"><!-- Start Plug -->
 
@@ -43,7 +44,7 @@ if (isset($_POST['replaceMassiveUrl'])) {
 			<label for="newurl"><?php echo i18n_r('massiveAdmin/NEWDOMAIN'); ?>:</label>
 			<input class="w3-input w3-padding w3-border w3-round w3-margin-bottom" text="text" value="" placeholder="<?php echo i18n_r('massiveAdmin/NEWDOMAIN'); ?>" name="newMassiveUrl">
 
-			<button class="w3-btn w3-green w3-round" type="submit" name="replaceMassiveUrl"><?php echo i18n_r('massiveAdmin/REPLACEDOMAIN'); ?></button>
+			<button class="w3-btn w3-green w3-large w3-round" type="submit" name="replaceMassiveUrl"><?php echo i18n_r('massiveAdmin/REPLACEDOMAIN'); ?></button>
 		</form>
 	</div>
 
@@ -56,7 +57,7 @@ if (isset($_POST['replaceMassiveUrl'])) {
 				<label for=""><?php echo i18n_r('massiveAdmin/TURNONSSL'); ?></label>
 				<input class="w3-check" type="checkbox" name="turnon" value="on" <?php echo (@file_get_contents(GSDATAOTHERPATH . 'MassiveForceSSL/status.txt') == 'on' ? 'checked' : ''); ?>>
 				<br>
-				<button class="w3-btn w3-green w3-round w3-margin-top" type="submit" name="forceSSLturnon"><?php echo i18n_r('massiveAdmin/SAVESSL'); ?></button>
+				<button class="w3-btn w3-green w3-large w3-round w3-margin-top" type="submit" name="forceSSLturnon"><?php echo i18n_r('massiveAdmin/SAVESSL'); ?></button>
 			</form>
 		</div>
 	</div>

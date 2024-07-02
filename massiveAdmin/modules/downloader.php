@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 <style>
 	.wrapper a:link, .wrapper .w3-bar-item a:visited {text-decoration: none;}
 	.w3-input{height:25px; width:98%; margin-bottom:30px}

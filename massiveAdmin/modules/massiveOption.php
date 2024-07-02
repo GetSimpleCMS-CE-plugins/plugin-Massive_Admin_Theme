@@ -14,6 +14,7 @@ if (file_exists($filename)) {
 </style>
 
 <link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 
 <div class="w3-parent w3-container"><!-- Start Plug -->
 

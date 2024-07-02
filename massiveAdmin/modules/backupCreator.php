@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 <style>.w3-ul li:nth-child(odd) {background: #F3F3F3;}</style>
 
 <div class="w3-parent w3-container"><!-- Start Plug -->
@@ -16,7 +17,7 @@
 		</select>
 		
 		<div class="w3-margin-top w3-center">
-			<button class="w3-btn w3-large w3-round-large w3-green" style="width:33.3%" type="submit" name="backupcreate"><?php echo i18n_r('massiveAdmin/CREATEBACKUP'); ?></button>
+			<button class="w3-btn w3-large w3-round w3-green" type="submit" name="backupcreate"><?php echo i18n_r('massiveAdmin/CREATEBACKUP'); ?></button>
 		</div>
 	</form>
 </div>
@@ -39,11 +40,12 @@
 		<li>
 			<div class="w3-row-padding">
 				<div class="w3-half">
-					<a href="'.$domainurl.'" download>'. $name.'</a> 
+					<svg xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;" width="18px" height="18px" viewBox="0 0 24 24"><path fill="#E2990C" d="M16 16h2v-2h-2v-2h2v-2h-2V8h4v10h-4zm0 0h-2v2H4V6h5.17l2 2H14v2h2v2h-2v2h2z" opacity="0.3"></path><path fill="#E2990C" d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2m-4 10h2v-2h-2v-2h2v-2h-2V8h4v10h-4zm0 0h-2v2H4V6h5.17l2 2H14v2h2v2h-2v2h2z"></path></svg> 
+					<a style="text-decoration:none;" href="'.$domainurl.'" download>'. $name.'</a> 
 				</div>
 				<div class="w3-half w3-right-align" style="width:46%">
 					<form method="post"><input type="hidden" name="delbackup" value="'.$url.'">
-						<button class="delbackupbtn w3-bar-item w3-btn w3-red w3-round w3-right" style="padding:0 5px; xborder:black solid 1px" type="submit">
+						<button class="delbackupbtn w3-bar-item w3-btn w3-red w3-round w3-right" style="padding:0 5px;" type="submit">
 							<svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24" id="trash"><path fill="#fff" d="M20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Z"></path></svg>
 						</button>
 					</form>

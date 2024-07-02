@@ -3,6 +3,7 @@ $fileOptionCheck = @file_get_contents( GSDATAOTHERPATH.'massiveTheme/option.txt'
 ?>
 
 <link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 
 <div class="w3-parent w3-container"><!-- Start Plug -->
 
@@ -48,6 +49,6 @@ if(isset($_POST['save'])){
 	</select>
 	
 	<div class="w3-margin-top w3-center">
-		<button class="w3-btn w3-large w3-round-large w3-green" style="width:33.3%" type="submit" name="save"><?php echo i18n_r('massiveAdmin/SAVEOPTION'); ?></button>
+		<button class="w3-btn w3-large w3-round w3-green" type="submit" name="save"><?php echo i18n_r('massiveAdmin/SAVEOPTION'); ?></button>
 	</div>
 </form>

@@ -7,6 +7,7 @@ $data = json_decode($datee);
 <?php error_reporting(E_ALL ^ E_NOTICE); ?>
 
 <link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 <style>
 	input::file-selector-button {background-color: var(--main-color); border:0; border-radius: 5px; color: #fff; padding: .75rem 1rem; margin:0 10px 20px 20px;}
 	input::file-selector-button:hover {box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
@@ -111,7 +112,7 @@ $data = json_decode($datee);
 	</div>
 	
 	<div class="w3-margin-top w3-center">
-		<button class="w3-btn w3-large w3-round-large w3-green" style="width:33.3%" type="submit" name="submit"><?php echo i18n_r('massiveAdmin/SAVEOPTION'); ?></button>
+		<button class="w3-btn w3-large w3-round w3-green" type="submit" name="submit"><?php echo i18n_r('massiveAdmin/SAVEOPTION'); ?></button>
 	</div>
 
 </form>

@@ -10,6 +10,7 @@
 </style>
 
 <link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 
 <div class="w3-parent w3-container"><!-- Start Plug -->
 
@@ -34,7 +35,7 @@
 	</script>
 	
 	<div class="w3-center" style="margin-top:30px">
-		<button class="w3-btn w3-large w3-round-large w3-green" style="width:33.3%" type="submit" value="<?php echo i18n_r('massiveAdmin/GSCONFIGSAVE'); ?>" name="editGSConfig"><?php echo i18n_r('massiveAdmin/GSCONFIGSAVE'); ?></button>
+		<button class="w3-btn w3-large w3-round w3-green" type="submit" value="<?php echo i18n_r('massiveAdmin/GSCONFIGSAVE'); ?>" name="editGSConfig"><?php echo i18n_r('massiveAdmin/GSCONFIGSAVE'); ?></button>
 	</div>
 </form>
 

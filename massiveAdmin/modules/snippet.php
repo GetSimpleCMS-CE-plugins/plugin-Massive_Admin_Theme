@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 
 <style>
 	.copybutton { display: inline-block; position: relative; vertical-align: middle; }
@@ -12,7 +13,7 @@
 <h3><?php echo i18n_r('massiveAdmin/EDITSNIPPET'); ?></h3>
 	
 <div class="w3-margin-top w3-right-align">
-	<button class="w3-btn w3-tiny w3-round-large w3-green" type="submit"  id="addsnippet" accesskey="a" onclick="event.preventDefault();addNewSnippet();"><?php echo i18n_r('massiveAdmin/ADDSNIPPET'); ?></button>
+	<button class="w3-btn w3-tiny w3-round w3-green" type="submit"  id="addsnippet" accesskey="a" onclick="event.preventDefault();addNewSnippet();"><?php echo i18n_r('massiveAdmin/ADDSNIPPET'); ?> +</button>
 </div>
 
 <hr>
@@ -75,7 +76,7 @@
 		?>
 	
 		<div class="w3-margin-top w3-center">
-			<button class="w3-btn w3-large w3-round-large w3-green" style="width:33.3%" type="submit" value="<?php echo i18n_r('massiveAdmin/SUBMITSNIPPET');?>" name="snippetSave"><?php echo i18n_r('massiveAdmin/SUBMITSNIPPET');?></button>
+			<button class="w3-btn w3-large w3-round w3-green" type="submit" value="<?php echo i18n_r('massiveAdmin/SUBMITSNIPPET');?>" name="snippetSave"><?php echo i18n_r('massiveAdmin/SUBMITSNIPPET');?></button>
 		</div>
 
 	</div>
