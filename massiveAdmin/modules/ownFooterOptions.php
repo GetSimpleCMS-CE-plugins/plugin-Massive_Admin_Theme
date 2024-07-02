@@ -49,15 +49,15 @@ $data = json_decode($datee);
 
 	<?php global $SITEURL; ?>
 
-	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/codemirror.min.js" integrity="sha512-8RnEqURPUc5aqFEN04aQEiPlSAdE0jlFS/9iGgUyNtwFnSKCXhmB6ZTNl7LnDtDWKabJIASzXrzD0K+LYexU9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<link rel="stylesheet" href="<?php echo $SITEURL; ?>plugins/massiveAdmin/css/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="<?php echo $SITEURL; ?>plugins/massiveAdmin/css/blackboard.min.css" integrity="sha512-KnHAkH0/78Cyjs1tjV9/+00HK8gu1uKRCCKcWFxX0+rehRh9SYJqiG/2fY4St7H8rPItOsBkgQjN0m4rL5Wobw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/php.min.js" integrity="sha512-jZGz5n9AVTuQGhKTL0QzOm6bxxIQjaSbins+vD3OIdI7mtnmYE6h/L+UBGIp/SssLggbkxRzp9XkQNA4AyjFBw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/css.min.js" integrity="sha512-rQImvJlBa8MV1Tl1SXR5zD2bWfmgCEIzTieFegGg89AAt7j/NBEe50M5CqYQJnRwtkjKMmuYgHBqtD1Ubbk5ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/javascript.min.js" integrity="sha512-I6CdJdruzGtvDyvdO4YsiAq+pkWf2efgd1ZUSK2FnM/u2VuRASPC7GowWQrWyjxCZn6CT89s3ddGI+be0Ak9Fg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/xml.min.js" integrity="sha512-LarNmzVokUmcA7aUDtqZ6oTS+YXmUKzpGdm8DxC46A6AHu+PQiYCUlwEGWidjVYMo/QXZMFMIadZtrkfApYp/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/htmlmixed.min.js" integrity="sha512-HN6cn6mIWeFJFwRN9yetDAMSh+AK9myHF1X9GlSlKmThaat65342Yw8wL7ITuaJnPioG0SYG09gy0qd5+s777w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/clike.min.js" integrity="sha512-l8ZIWnQ3XHPRG3MQ8+hT1OffRSTrFwrph1j1oc1Fzc9UKVGef5XN9fdO0vm3nW0PRgQ9LJgck6ciG59m69rvfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/codemirror.min.js"></script>
+	<link rel="stylesheet" href="<?php echo $SITEURL; ?>plugins/massiveAdmin/css/codemirror.min.css">
+	<link rel="stylesheet" href="<?php echo $SITEURL; ?>plugins/massiveAdmin/css/blackboard.min.css">
+	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/php.min.js"></script>
+	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/css.min.js"></script>
+	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/javascript.min.js"></script>
+	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/xml.min.js"></script>
+	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/htmlmixed.min.js"></script>
+	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/clike.min.js"></script>
 	
 	<div class="w3-margin-bottom">
 		<label for="ownheader"><?php echo i18n_r('massiveAdmin/OWNFOOTERHEADER'); ?></label>
@@ -77,6 +77,7 @@ $data = json_decode($datee);
 				matchBrackets: true,
 				indentUnit: 4,
 				indentWithTabs: true,
+				lineWrapping: true,
 				enterMode: "keep",
 				tabMode: "shift",
 				mode: 'htmlmixed',
