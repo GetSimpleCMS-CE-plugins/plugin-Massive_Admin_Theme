@@ -31,7 +31,7 @@ if (isset($_POST['replaceMassiveUrl'])) {
 	echo ("<meta http-equiv='refresh' content='1'>");
 }; 
 ?>
-<div class="w3-row-padding">
+<div class="w3-row">
 
 	<div class="w3-half">
 		<h3><?php echo i18n_r('massiveAdmin/MIGRATEDOMAIN'); ?></h3>
@@ -48,17 +48,15 @@ if (isset($_POST['replaceMassiveUrl'])) {
 		</form>
 	</div>
 
-	<div class="w3-half" style="width:46%">
+	<div class="w3-rest" xstyle="width:46%">
 		<h3><?php echo i18n_r('massiveAdmin/FORCESSL'); ?></h3>
 		<hr>
-		<div class="w3-container">
-			<form action="#" method="POST" style="width:85%">
-				
-				<label for=""><?php echo i18n_r('massiveAdmin/TURNONSSL'); ?></label>
-				<input class="w3-check" type="checkbox" name="turnon" value="on" <?php echo (@file_get_contents(GSDATAOTHERPATH . 'MassiveForceSSL/status.txt') == 'on' ? 'checked' : ''); ?>>
-				<br>
-				<button class="w3-btn w3-green w3-large w3-round w3-margin-top" type="submit" name="forceSSLturnon"><?php echo i18n_r('massiveAdmin/SAVESSL'); ?></button>
-			</form>
-		</div>
+		<form action="#" method="POST" style="width:85%">
+			
+			<label for=""><?php echo i18n_r('massiveAdmin/TURNONSSL'); ?></label>
+			<input class="w3-check" type="checkbox" name="turnon" value="on" <?php echo (@file_get_contents(GSDATAOTHERPATH . 'MassiveForceSSL/status.txt') == 'on' ? 'checked' : ''); ?>>
+			<br>
+			<button class="w3-btn w3-green w3-large w3-round w3-margin-top" type="submit" name="forceSSLturnon"><?php echo i18n_r('massiveAdmin/SAVESSL'); ?></button>
+		</form>
 	</div>
 </div>

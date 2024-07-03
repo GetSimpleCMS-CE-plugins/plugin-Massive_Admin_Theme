@@ -3,10 +3,11 @@
 <style>
 	.wrapper a:link, .wrapper .w3-bar-item a:visited {text-decoration: none;}
 	.w3-input{height:25px; width:98%; margin-bottom:30px}
-	.w3-row-padding{display: table-row;}
-	.w3-third{height:100%; box-sizing:border-box; display: table-cell;}
-	.w3-card{height: 38vh;}
 	.scroll{overflow-y: auto; height: 600px;}
+	
+	.w3-main{display: table;}
+	.w3-third{box-sizing:border-box; display: table-cell;}
+	.info{height:60px;}
 </style>
   
 <div class="w3-parent w3-container"><!-- Start Plug -->
@@ -27,14 +28,14 @@
 
 	echo '
 	<div class="scroll">
-		<div class="w3-row-padding w3-margin-top">';
+		<div class="w3-main">';
 
 	foreach ($jsondb as $key => $value) {
 		echo '
-			<div class="w3-third w3-margin-bottom" style="display: block;">
-				<div class="w3-card w3-light-grey w3-padding-small w3-round w3-border">
+			<div class="w3-third w3-margin-bottom w3-row-padding">
+				<div class="w3-light-grey w3-padding-small w3-round w3-border">
 					<h4 class="title w3-gs-main w3-round w3-padding-small">' . $value->name . '</h4>
-					<p class="info" style="height:60px;">' . $value->info . '</p>
+					<p class="info">' . $value->info . '</p>
 					
 					<hr>
 					
@@ -44,7 +45,7 @@
 						<div class="w3-half w3-center w3-text-gs-main"><svg xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="black" d="m21.7 13.35l-1 1l-2.05-2.05l1-1a.55.55 0 0 1 .77 0l1.28 1.28c.21.21.21.56 0 .77M12 18.94l6.06-6.06l2.05 2.05L14.06 21H12zM12 14c-4.42 0-8 1.79-8 4v2h6v-1.89l4-4c-.66-.08-1.33-.11-2-.11m0-10a4 4 0 0 0-4 4a4 4 0 0 0 4 4a4 4 0 0 0 4-4a4 4 0 0 0-4-4"/></svg> ' . $value->author . '</div>
 					</div>
 					
-					<form action="#" method="POST" class="w3-center" style="padding-top:30px">
+					<form action="#" method="POST" class="w3-center" style="margin:10px 0">
 						<input type="hidden" name="url" value="' . $value->url . '">
 						<button type="submit" name="download" class="w3-btn w3-green w3-round w3-center download" value="' . i18n_r('massiveAdmin/DOWNLOAD') . '">' . i18n_r('massiveAdmin/DOWNLOAD') . '</button>
 					</form>
@@ -68,11 +69,11 @@
 		document.querySelector('.searchce').addEventListener('keyup', (e) => {
 			const searchValue = document.querySelector('.searchce').value.toLowerCase();
 			
-			document.querySelectorAll('.w3-row-padding .w3-third').forEach(x => {
+			document.querySelectorAll('.w3-main .w3-third').forEach(x => {
 				x.style.display = "none";
 			});
 
-			document.querySelectorAll('.w3-row-padding .w3-third').forEach(c => {
+			document.querySelectorAll('.w3-main .w3-third').forEach(c => {
 				const titleText = c.querySelector('.title').innerHTML.toLowerCase();
 				const infoText = c.querySelector('.info').innerHTML.toLowerCase();
 				

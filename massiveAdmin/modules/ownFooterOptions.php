@@ -97,13 +97,13 @@ $data = json_decode($datee);
 			<input class="w3-check turncolor" type="checkbox" value="true" name="turncolor">
 		</div>
 		
-		<div class="w3-row-padding w3-margin-bottom">
-			<div class="w3-half colors-item" style="width:46%; padding:15px;">
+		<div class="w3-row w3-margin-bottom">
+			<div class="w3-half colors-item" style="padding:15px;">
 				<label for="ownmaincolor"><?php echo i18n_r('massiveAdmin/MAINCOLOR'); ?></label>
 				<input class="w3-input" type="color" value="<?php echo $data->maincolor ?? ''; ?>" name="maincolor">
 			</div>
 
-			<div class="w3-half colors-item" style="width:46%; padding:15px;">
+			<div class="w3-rest colors-item" style="padding:15px;">
 				<label for="ownmaincolor"><?php echo i18n_r('massiveAdmin/BGCOLOR'); ?></label>
 				<input class="w3-input" type="color" value="<?php echo $data->bgcolor ?? ''; ?>" name="bgcolor">
 			</div>
