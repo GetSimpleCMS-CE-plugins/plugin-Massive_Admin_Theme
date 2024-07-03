@@ -18,6 +18,9 @@ if (file_exists($filename)) {
 
 <div class="w3-parent w3-container"><!-- Start Plug -->
 
+<h3>MassiveAdmin Settings</h3>
+<hr>
+
 <div class="massiveoption">
 
 	<div class="hidetitle" id="hidetitle1">

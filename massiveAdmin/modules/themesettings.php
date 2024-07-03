@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 <div class="w3-parent w3-container"><!-- Start Plug -->
 
-<h3>Theme Configurator</h3>
+<h3><?php echo i18n_r('massiveAdmin/THEMECONFIGURATORNAME'); ?></h3>
 <hr>
 
 <div class="w3-panel w3-leftbar w3-pale-yellow w3-padding-large">
