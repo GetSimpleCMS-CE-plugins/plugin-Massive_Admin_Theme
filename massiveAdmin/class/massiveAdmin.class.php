@@ -70,7 +70,10 @@ class MassiveAdminClass{
 
 	/* composite on page */
 	public function compositeOnPage(){
-		echo '<li><a href="components.php" class="compmassive">' . i18n_r("massiveAdmin/EDITCOMPONENTS") . '</a> </li>';
+		echo '
+		<li>
+			<a href="components.php" class="compmassive">' . i18n_r("massiveAdmin/EDITCOMPONENTS") . '</a>
+		</li>';
 	}
 
 	/*massive option file */
@@ -232,37 +235,50 @@ class MassiveAdminClass{
 			$usrLangFile = $username->LANG[0];
 
 			echo '
-			<li> <span class="name">' . $usrfile . '</span><form action="" method="POST"><button type="submit" name="' . $newValue . '" class="delete-this" 
-			style="background:red;color:#fff;border:none;font-size:1.1rem;border-radius:3px">
-			
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="trash" style="display:inline-block;width:20px;height:20px;fill:#fff;"><path d="M20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Z"></path></svg>
-			</button></form>
-			
-<form method="POST" style="width:100%;border:solid 1px #ddd; padding:10px;margin-top:10px;">
+			<li> 
+				<div class="w3-panel w3-leftbar w3-pale-blue w3-border-blue w3-padding w3-row">
+					<div class="w3-col m11 l11">
+						<h4 class="w3-margin-top"><svg xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle"width="1.2em" height="1.2em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg> ' . $usrfile . '</h4>
+					</div>
+					<div class="w3-col m1 l1">
+						<form action="" method="POST">
+							<button name="' . $newValue . '" class="delete-this w3-bar-item w3-btn w3-red w3-round w3-right" style="margin-top:15px; padding: 2px 5px;">
+							<svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24" id="trash"><path fill="#fff" d="M20,6H16V5a3,3,0,0,0-3-3H11A3,3,0,0,0,8,5V6H4A1,1,0,0,0,4,8H5V19a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V8h1a1,1,0,0,0,0-2ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm7,14a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V8H17Z"></path></svg>
+							</button>
+						</form>
+					</div>
+				</div>
+							
+				<form method="POST">
 
-<input name="nameuser" type="hidden"  value="' . $usrfile . '">
+					<input name="nameuser" type="hidden"  value="' . $usrfile . '">
 
-<label for="email">' . i18n_r("massiveAdmin/EMAIL") . '</label>
-<input type="email" name="email" value="' . $username->EMAIL[0] . '">
+					<label for="email">' . i18n_r("massiveAdmin/EMAIL") . '</label>
+					<input class="w3-input w3-border w3-round w3-margin-bottom" type="email" name="email" value="' . $username->EMAIL[0] . '">
 
-<label for="password">' . i18n_r("massiveAdmin/PASSWORD") . '</label>
-<input type="password" name="password" placeholder="' . i18n_r("massiveAdmin/CHANGEPLACEHOLDER") . '">
+					<label for="password">' . i18n_r("massiveAdmin/PASSWORD") . '</label>
+					<input class="w3-input w3-border w3-round w3-margin-bottom" type="password" name="password" placeholder="' . i18n_r("massiveAdmin/CHANGEPLACEHOLDER") . '">
 
-<label for="password">' . i18n_r("massiveAdmin/LANG") . '</label>
-<select style="width:100%;background:#fff;border:solid 1px var(--main-color);padding:10px;" name="lang">
-';
+					<label for="password">' . i18n_r("massiveAdmin/LANG") . '</label>
+					<select class="w3-select w3-border w3-round w3-margin-bottom w3-margin-bottom" name="lang">
+					';
 
-			foreach (glob(GSLANGPATH . '*.php') as $lang) {
-				$pureLang = pathinfo($lang)['filename'];
-				echo '<option value="' . $pureLang . '" ' . ($usrLangFile == $pureLang  ? 'selected' : '') . '>' . $pureLang  . '</option>';
-			};
+					foreach (glob(GSLANGPATH . '*.php') as $lang) {
+						$pureLang = pathinfo($lang)['filename'];
+						echo '
+						<option value="' . $pureLang . '" ' . ($usrLangFile == $pureLang  ? 'selected' : '') . '>' . $pureLang  . '</option>';
+					};
 
-			echo '
-</select>
+					echo '
+					</select>
+					
+					<div class="w3-margin-top w3-center">
+						<button class="w3-btn w3-large w3-round w3-green" type="submit" name="changeuser-' . $newValue . '">
+							' . i18n_r("massiveAdmin/SAVEOPTION") . '
+						</button>
+					</div>
 
-<input type="submit" value="' . i18n_r("massiveAdmin/SAVEOPTION") . '" style="background:var(--main-color); width:200px;color:#fff;border-radius:5px;border:none" name="changeuser-' . $newValue . '">
-
-</form>
+				</form>
 			</li>';
 
 			if (isset($_POST['changeuser-' . $newValue])) {
@@ -525,7 +541,10 @@ class MassiveAdminClass{
 		global $SITEURL;
 		$url =  $SITEURL . $GSADMIN . '/load.php?id=massiveAdmin&unistaller';
 
-		echo '<div class="success" style="position:absolute; top:0; left:0; width: 100%; background: green; padding: 10px; box-sizing: border-box; color: #fff; margin-bottom: 20px;">Removed!</div>';
+		echo '
+		<div class="success" style="position:absolute; top:0; left:0; width: 100%; background: green; padding: 10px; box-sizing: border-box; color: #fff; margin-bottom: 20px;">
+			Removed!
+		</div>';
 
 		echo ("<script>
 		setTimeout(()=>{

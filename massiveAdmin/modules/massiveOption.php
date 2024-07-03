@@ -15,12 +15,24 @@ if (file_exists($filename)) {
 
 <link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
 <link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
+<style>.w3-block{width:96%}</style>
 
 <div class="w3-parent w3-container"><!-- Start Plug -->
 
 <h3>MassiveAdmin Settings</h3>
 <hr>
 
+	<button onclick="myFunction('Tab1')" class="w3-button w3-xlarge w3-round w3-block w3-gray w3-text-white w3-left-align w3-margin-bottom"><?php echo i18n_r('massiveAdmin/MAITENANCETITLE'); ?><span class="w3-right"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="m5 8l7 8l7-8z"/></svg></span></button>
+	<div id="Tab1" class="w3-hide w3-container">
+		<p>Some text..</p>
+	</div>
+
+	<button onclick="myFunction('Tab2')" class="w3-button w3-xlarge w3-round w3-block w3-gray w3-text-white w3-left-align w3-margin-bottom"><?php echo i18n_r('massiveAdmin/BOOTSTRAPTITLE'); ?> <span class="w3-right"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="m5 8l7 8l7-8z"/></svg></span></button>
+	<div id="Tab2" class="w3-hide w3-container">
+		<p>Some other text..</p>
+	</div>
+	
+	
 <div class="massiveoption">
 
 	<div class="hidetitle" id="hidetitle1">
@@ -109,6 +121,21 @@ if (file_exists($filename)) {
 	</script>
 
 	<script src="<?php echo $SITEURL; ?>plugins/massiveAdmin/js/massiveOption.js"></script>
+
+	<script>
+	function myFunction(id) {
+	  var x = document.getElementById(id);
+	  if (x.className.indexOf("w3-show") == -1) {
+		x.className += " w3-show";
+		x.previousElementSibling.className = 
+		x.previousElementSibling.className.replace("w3-gray", "w3-gs-main");
+	  } else { 
+		x.className = x.className.replace(" w3-show", "");
+		x.previousElementSibling.className = 
+		x.previousElementSibling.className.replace("w3-gs-main", "w3-gray");
+	  }
+	}
+	</script>
 
 </div>
 

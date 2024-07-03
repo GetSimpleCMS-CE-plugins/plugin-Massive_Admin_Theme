@@ -53,12 +53,12 @@ $daterJsonNew = json_encode($daterJson);
 	<form action="#" method="POST" class="w3-container">
 		<div class="w3-margin-bottom">
 			<label for=""><?php echo i18n_r('massiveAdmin/LINKNAME'); ?></label>
-			<input class="w3-input w3-border" type="text" name="linkname" required>
+			<input class="w3-input w3-border w3-round w3-margin-bottom" type="text" name="linkname" required>
 		</div>
 
 		<div class="w3-margin-bottom">
 			<label for=""><?php echo i18n_r('massiveAdmin/LINKURL'); ?></label>
-			<input class="w3-input w3-border" type="text" name="linkurl" required>
+			<input class="w3-input w3-border w3-round w3-margin-bottom" type="text" name="linkurl" required>
 		</div>
 
 		<div class="w3-margin-bottom">
