@@ -33,8 +33,8 @@
 	foreach ($jsondb as $key => $value) {
 		echo '
 			<div class="w3-third w3-margin-bottom w3-row-padding">
-				<div class="w3-light-grey w3-padding-small w3-round w3-border">
-					<h4 class="title w3-gs-main w3-round w3-padding-small">' . $value->name . '</h4>
+				<div class="w3-light-grey w3-padding-small w3-round w3-border" style="min-width:285px">
+					<h4 class="title w3-gs-main w3-round w3-padding-small" style="height:35px;overflow-y:hidden">' . $value->name . '</h4>
 					<p class="info">' . $value->info . '</p>
 					
 					<hr>
