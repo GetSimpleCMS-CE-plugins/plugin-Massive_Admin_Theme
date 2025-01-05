@@ -17,7 +17,7 @@
 
 	<hr>
 
-	<input type="text" class="w3-input w3-border w3-round searchce" placeholder="🔎 <?php echo i18n_r('massiveAdmin/SEARCHPLUGIN'); ?> ">
+	<input type="text" id="search-plugins" class="w3-input w3-border w3-round" placeholder="🔎 <?php echo i18n_r('massiveAdmin/SEARCHPLUGIN'); ?> ">
 	<?php
 	global $GSADMIN;
 
@@ -26,13 +26,13 @@
 
 	global $SITEURL;
 
-	echo '
+	echo '<style>.w3-row .w3-third{height:35px}</style>
 	<div class="scroll">
 		<div class="w3-main">';
 
 	foreach ($jsondb as $key => $value) {
 		echo '
-			<div class="w3-third w3-margin-bottom w3-row-padding">
+			<div class="w3-third w3-margin-bottom w3-row-padding ce-plugin">
 				<div class="w3-light-grey w3-padding-small w3-round w3-border" style="min-width:285px">
 					<h4 class="title w3-gs-main w3-round w3-padding-small" style="height:35px;overflow-y:hidden">' . $value->name . '</h4>
 					<p class="info">' . $value->info . '</p>
@@ -40,9 +40,13 @@
 					<hr>
 					
 					<div class="w3-row">
-						 <div class="w3-half w3-center w3-text-gs-main"><svg xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="black" d="M19 21q-.975 0-1.75-.562T16.175 19H11q-1.65 0-2.825-1.175T7 15t1.175-2.825T11 11h2q.825 0 1.413-.587T15 9t-.587-1.412T13 7H7.825q-.325.875-1.088 1.438T5 9q-1.25 0-2.125-.875T2 6t.875-2.125T5 3q.975 0 1.738.563T7.825 5H13q1.65 0 2.825 1.175T17 9t-1.175 2.825T13 13h-2q-.825 0-1.412.588T9 15t.588 1.413T11 17h5.175q.325-.875 1.088-1.437T19 15q1.25 0 2.125.875T22 18t-.875 2.125T19 21M5 7q.425 0 .713-.288T6 6t-.288-.712T5 5t-.712.288T4 6t.288.713T5 7"/></svg> <b>' . $value->version . '</b></div>
+						 <div class="w3-third w3-center w3-text-gs-main"><svg xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="black" d="M19 21q-.975 0-1.75-.562T16.175 19H11q-1.65 0-2.825-1.175T7 15t1.175-2.825T11 11h2q.825 0 1.413-.587T15 9t-.587-1.412T13 7H7.825q-.325.875-1.088 1.438T5 9q-1.25 0-2.125-.875T2 6t.875-2.125T5 3q.975 0 1.738.563T7.825 5H13q1.65 0 2.825 1.175T17 9t-1.175 2.825T13 13h-2q-.825 0-1.412.588T9 15t.588 1.413T11 17h5.175q.325-.875 1.088-1.437T19 15q1.25 0 2.125.875T22 18t-.875 2.125T19 21M5 7q.425 0 .713-.288T6 6t-.288-.712T5 5t-.712.288T4 6t.288.713T5 7"/></svg> <b>' . $value->version . '</b></div>
 						
-						<div class="w3-half w3-center w3-text-gs-main"><svg xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="black" d="m21.7 13.35l-1 1l-2.05-2.05l1-1a.55.55 0 0 1 .77 0l1.28 1.28c.21.21.21.56 0 .77M12 18.94l6.06-6.06l2.05 2.05L14.06 21H12zM12 14c-4.42 0-8 1.79-8 4v2h6v-1.89l4-4c-.66-.08-1.33-.11-2-.11m0-10a4 4 0 0 0-4 4a4 4 0 0 0 4 4a4 4 0 0 0 4-4a4 4 0 0 0-4-4"/></svg> ' . $value->author . '</div>
+						<div class="w3-third w3-center w3-text-gs-main"><svg xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="black" d="m21.7 13.35l-1 1l-2.05-2.05l1-1a.55.55 0 0 1 .77 0l1.28 1.28c.21.21.21.56 0 .77M12 18.94l6.06-6.06l2.05 2.05L14.06 21H12zM12 14c-4.42 0-8 1.79-8 4v2h6v-1.89l4-4c-.66-.08-1.33-.11-2-.11m0-10a4 4 0 0 0-4 4a4 4 0 0 0 4 4a4 4 0 0 0 4-4a4 4 0 0 0-4-4"/></svg> ' . $value->author . '</div>';
+						
+						if (!empty($value->wiki)) { echo '
+						<div class="w3-third w3-center w3-text-gs-main"><svg xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle" width="1.5em" height="1.5em" viewBox="0 0 512 512"><rect width="512" height="512" fill="none"/><path fill="#000" d="M202.24 74C166.11 56.75 115.61 48.3 48 48a31.36 31.36 0 0 0-17.92 5.33A32 32 0 0 0 16 79.9V366c0 19.34 13.76 33.93 32 33.93c71.07 0 142.36 6.64 185.06 47a4.11 4.11 0 0 0 6.94-3V106.82a15.9 15.9 0 0 0-5.46-12A143 143 0 0 0 202.24 74m279.68-20.7A31.33 31.33 0 0 0 464 48c-67.61.3-118.11 8.71-154.24 26a143.3 143.3 0 0 0-32.31 20.78a15.93 15.93 0 0 0-5.45 12v337.13a3.93 3.93 0 0 0 6.68 2.81c25.67-25.5 70.72-46.82 185.36-46.81a32 32 0 0 0 32-32v-288a32 32 0 0 0-14.12-26.61"/></svg> <a href="' . $value->wiki . '" target="_blank">Wiki</a></div>';
+						} echo '
 					</div>
 					
 					<form action="#" method="POST" class="w3-center" style="margin:10px 0">
@@ -66,20 +70,20 @@
 	?>
 
 	<script>
-		document.querySelector('.searchce').addEventListener('keyup', (e) => {
-			const searchValue = document.querySelector('.searchce').value.toLowerCase();
-			
-			document.querySelectorAll('.w3-main .w3-third').forEach(x => {
-				x.style.display = "none";
-			});
+	document.getElementById('search-plugins').addEventListener('input', function() {
+		const query = this.value.toLowerCase();
+		const plugins = document.querySelectorAll('.ce-plugin');
 
-			document.querySelectorAll('.w3-main .w3-third').forEach(c => {
-				const titleText = c.querySelector('.title').innerHTML.toLowerCase();
-				const infoText = c.querySelector('.info').innerHTML.toLowerCase();
-				
-				if (titleText.indexOf(searchValue) > -1 || infoText.indexOf(searchValue) > -1) {
-					c.style.display = "block";
-				}
-			});
+		plugins.forEach(plugin => {
+			const name = plugin.querySelector('.title').textContent.toLowerCase();
+			const info = plugin.querySelector('.info').textContent.toLowerCase();
+			const author = plugin.querySelector('.w3-text-gs-main').textContent.toLowerCase();
+
+			if (name.includes(query) || info.includes(query) || author.includes(query)) {
+				plugin.style.display = ''; // Show the plugin
+			} else {
+				plugin.style.display = 'none'; // Hide the plugin
+			}
 		});
+	});
 	</script>
