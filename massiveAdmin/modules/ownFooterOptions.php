@@ -6,8 +6,10 @@ $data = json_decode($datee);
 
 <?php error_reporting(E_ALL ^ E_NOTICE); ?>
 
-<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
-<link rel="stylesheet" href="<?php global $SITEURL; echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
+<link rel="stylesheet" href="<?php global $SITEURL;
+echo $SITEURL; ?>plugins/massiveAdmin/css/w3.css">
+<link rel="stylesheet" href="<?php global $SITEURL;
+echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 <style>
 	input::file-selector-button {
 		background-color: var(--main-color);
@@ -36,25 +38,28 @@ $data = json_decode($datee);
 
 	<form id="ownfooterform" action="#" method="POST" enctype="multipart/form-data">
 		<div class="w3-margin-bottom w3-padding-large w3-center w3-panel w3-gs-main w3-round">
-			<label class="w3-text-white" style="font-weight:600; padding-right:20px"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
+			<label class="w3-text-white"
+				style="font-weight:600; padding-right:20px"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
 			<input class="w3-check checkbox" style="margin-right:10px;" type="checkbox" name="turnon" value="true">
 		</div>
 
 		<div class="w3-margin-bottom">
 			<label for="ownfootername"><?php echo i18n_r('massiveAdmin/OWNFOOTERNAME'); ?> </label>
-			<input class="w3-input w3-padding w3-border w3-round w3-margin-bottom" style="width:96%" type="text" value="<?php echo $data->ownfootername ?? ''; ?>" name="ownfootername">
+			<input class="w3-input w3-padding w3-border w3-round w3-margin-bottom" style="width:96%" type="text"
+				value="<?php echo $data->ownfootername ?? ''; ?>" name="ownfootername">
 		</div>
 
 		<div class="w3-margin-bottom">
 
-			<?php if ($data->ownfootericon !== null || $data->ownfootericon !== ''): ?>
+			<?php if (!empty($data) && !empty($data->ownfootericon)): ?>
 				<img src="<?php global $SITEURL;
-							echo $SITEURL . 'data/other/footerfoto/' . $data->ownfootericon; ?>" style="width:80px;height:80px;display:block;border:solid 1px #ddd;padding:5px;margin:10px 0;object-fit:contain;">
+				echo $SITEURL . 'data/other/footerfoto/' . $data->ownfootericon; ?>"
+					style="width:80px;height:80px;display:block;border:solid 1px #ddd;padding:5px;margin:10px 0;object-fit:contain;">
 
 			<?php endif; ?>
 
 			<label for="ownfootericon"><?php echo i18n_r('massiveAdmin/OWNFOOTERICON'); ?></label>
-			<input class="w3-input" type="file" value="<?php echo $data->ownfootericon; ?>" name="ownfootericon">
+			<input class="w3-input" type="file" value="<?php echo @$data->ownfootericon; ?>" name="ownfootericon">
 		</div>
 
 		<div class="w3-margin-bottom">
@@ -67,7 +72,8 @@ $data = json_decode($datee);
 
 		<div class="w3-margin-bottom">
 			<label for="ownfooterlink"><?php echo i18n_r('massiveAdmin/OWNFOOTERLINK'); ?></label>
-			<input class="w3-input w3-padding w3-border w3-round w3-margin-bottom" style="width:96%" type="text" value="<?php echo $data->ownfooterlink ?? ''; ?>" name="ownfooterlink">
+			<input class="w3-input w3-padding w3-border w3-round w3-margin-bottom" style="width:96%" type="text"
+				value="<?php echo $data->ownfooterlink ?? ''; ?>" name="ownfooterlink">
 		</div>
 
 		<?php global $SITEURL; ?>
@@ -84,12 +90,14 @@ $data = json_decode($datee);
 
 		<div class="w3-margin-bottom">
 			<label for="ownheader"><?php echo i18n_r('massiveAdmin/OWNFOOTERHEADER'); ?></label>
-			<textarea name="ownheader" id="ownheader" style="width:100%; height:200px; margin-top:10px; display:block;"><?php echo $data->ownheader ?? ''; ?></textarea>
+			<textarea name="ownheader" id="ownheader"
+				style="width:100%; height:200px; margin-top:10px; display:block;"><?php echo $data->ownheader ?? ''; ?></textarea>
 		</div>
 
 		<div class="w3-margin-bottom">
 			<label for="ownfooter"><?php echo i18n_r('massiveAdmin/OWNFOOTERFOOTER'); ?></label>
-			<textarea name="ownfooter" id="ownfooter" style="width:100%; height:200px; margin-top:10px; display:block;"><?php echo $data->ownfooter ?? ''; ?></textarea>
+			<textarea name="ownfooter" id="ownfooter"
+				style="width:100%; height:200px; margin-top:10px; display:block;"><?php echo $data->ownfooter ?? ''; ?></textarea>
 		</div>
 
 		<script>
@@ -115,7 +123,8 @@ $data = json_decode($datee);
 			<h4><?php echo i18n_r('massiveAdmin/CHANGETITLECOLOR'); ?>:</h4>
 
 			<div class="w3-margin-bottom w3-padding w3-center w3-panel w3-gray w3-round">
-				<label class="w3-text-white" style="font-weight:600; padding-right:20px" for="turncolor"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
+				<label class="w3-text-white" style="font-weight:600; padding-right:20px"
+					for="turncolor"><?php echo i18n_r('massiveAdmin/TURNON'); ?></label>
 				<input class="w3-check turncolor" type="checkbox" value="true" name="turncolor">
 			</div>
 
@@ -134,7 +143,8 @@ $data = json_decode($datee);
 		</div>
 
 		<div class="w3-margin-top w3-center">
-			<button class="w3-btn w3-large w3-round w3-green" type="submit" name="submit"><?php echo i18n_r('massiveAdmin/SAVEOPTION'); ?></button>
+			<button class="w3-btn w3-large w3-round w3-green" type="submit"
+				name="submit"><?php echo i18n_r('massiveAdmin/SAVEOPTION'); ?></button>
 		</div>
 
 	</form>
@@ -167,14 +177,15 @@ $data = json_decode($datee);
 			$turnon = "true";
 		} else {
 			$turnon = "false";
-		};
+		}
+		;
 
 		$ownfootername = $_POST['ownfootername'] ?? '';
 		$ownlogo = $_POST['ownlogo'] ?? '';
 		$ownheader = $_POST['ownheader'] ?? '';
-		$ownheadernew =  json_encode($ownheader, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
+		$ownheadernew = json_encode($ownheader, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
 		$ownfooter = $_POST['ownfooter'] ?? '';
-		$ownfooternew =  json_encode($ownfooter, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
+		$ownfooternew = json_encode($ownfooter, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
 		$ownfootericon = $_FILES["ownfootericon"]["name"];
 
 		$maincolor = $_POST['maincolor'] ?? '';
@@ -184,7 +195,8 @@ $data = json_decode($datee);
 			$turncolor = "true";
 		} else {
 			$turncolor = "false";
-		};
+		}
+		;
 
 		if ($ownfootericon == "") {
 			$ownfootericon = $data->ownfootericon;
@@ -208,14 +220,14 @@ $data = json_decode($datee);
 		$massiveOwnFooterFolder = GSDATAOTHERPATH . '/massiveOwnFooter/';
 		$filejson = 'OwnFooter.json';
 		$finaljson = $massiveOwnFooterFolder . $filejson;
-		$chmod_mode    = 0755;
+		$chmod_mode = 0755;
 		$folder_exists = file_exists($massiveOwnFooterFolder) || mkdir($massiveOwnFooterFolder, $chmod_mode);
 
 		file_put_contents($finaljson, $json);
 
 		$massiveOwnFooterFolderFoto = GSDATAOTHERPATH . '/footerfoto/';
 
-		$target_dir =  $massiveOwnFooterFolderFoto;
+		$target_dir = $massiveOwnFooterFolderFoto;
 		$target_file = $target_dir . basename($_FILES["ownfootericon"]["name"]);
 		$uploadOk = 1;
 		$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -224,7 +236,8 @@ $data = json_decode($datee);
 			mkdir($massiveOwnFooterFolderFoto, 0755);
 			$datas = 'Allow from all';
 			file_put_contents($massiveOwnFooterFolderFoto . '.htaccess', $datas);
-		};
+		}
+		;
 
 		// Check if image file is a actual image or fake image
 		if (isset($_POST["ownfootericon"])) {
@@ -258,5 +271,6 @@ $data = json_decode($datee);
 		}
 
 		echo ("<meta http-equiv='refresh' content='0'>");
-	};
+	}
+	;
 	?>
