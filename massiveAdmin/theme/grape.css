@@ -143,6 +143,8 @@ div#footer div.gslogo a img:hover{transform: scale(1.5);}
 
 #gsdebug {border: 1px solid #C00;}
 
+.w3-container .success { padding: 10px 15px; background-color: green; color: white; font-weight: 600; margin: 10px; border: 1px solid;}
+
 /* ----------------
   (\ /)
   (^.^) -{hola)
