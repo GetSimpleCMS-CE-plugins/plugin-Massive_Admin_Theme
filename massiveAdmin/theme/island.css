@@ -1,6 +1,6 @@
 /* ----------------
 MA Theme: Island 🌅
-Author: Islander 🌴
+Author: RisingIsland 🌴
 ---------------- */
 
 @import url('massive.css');
@@ -57,7 +57,13 @@ form input.text, form select.text {padding: 7px;font-size: 1em;border-radius: 5p
 
 #gsdebug {border: 1px solid #C00;}
 
-.w3-container .success { padding: 10px 15px; background-color: green; color: white; font-weight: 600; margin: 10px; border: 1px solid;}
+.w3-container .success {padding: 10px 15px; background-color: green; color: white; font-weight: 600; margin: 10px; border: 1px solid;}
+
+.logocustom {margin-left:10px; max-height: 50px; object-fit: contain;}
+
+#plugins .edittable tr, #plugins .edittable td, #plugins .edittable th {
+	cursor: default;
+}
 
 /* ----------------
   (\ /)
