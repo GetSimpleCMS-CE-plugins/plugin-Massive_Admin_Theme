@@ -178,7 +178,7 @@ $pluginUnistaller = i18n_r('massiveAdmin/UNISTALLER');
 add_action('plugins-sidebar', 'createSideMenu', [$thisfile, $pluginUnistaller . ' 🗑️', 'unistaller']);
 
 # components
-add_action('component-extras', 'compCode');
+add_action('header', 'compCode');
 
 # Make File in theme  - option removed for security reasons
 
