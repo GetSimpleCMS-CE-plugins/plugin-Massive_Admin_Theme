@@ -242,32 +242,42 @@ class MassiveAdminClass{
 	}
 
 	public function saveChangedUser(){
-		$file = file_get_contents(GSUSERSPATH . $_POST['nameuser'] . '.xml');
-		$data = new SimpleXMLElement(file_get_contents(GSUSERSPATH . $_POST['nameuser'] . '.xml'));
-		$oldPWD = $data->PWD[0];
-		$oldLANG = $data->LANG[0];
-		$oldEMAIL = $data->EMAIL[0];
-
-		$newEMAIL = $_POST['email'];
-		$newePWD = $_POST['password'];
-		$newLANG = $_POST['lang'];
-
-		if ($oldPWD !== $newEMAIL && $newEMAIL !== '') {
-			$file = str_replace($oldEMAIL, $newEMAIL, $file);
-		};
-
-		if ($oldLANG !==  $newLANG &&  $newLANG !== '') {
-			$file = str_replace($oldLANG, $newLANG, $file);
-		};
-
+		$username = $_POST['nameuser'];
+		$filename = GSUSERSPATH . $username . '.xml';
+		
+		if (!file_exists($filename)) {
+			return false;
+		}
+		
+		$data = simplexml_load_file($filename);
+		if ($data === false) {
+			return false;
+		}
+		
+		$oldPWD = (string)$data->PWD;
+		$oldLANG = (string)$data->LANG;
+		$oldEMAIL = (string)$data->EMAIL;
+		
+		$newEMAIL = $_POST['email'] ?? '';
+		$newPWD = $_POST['password'] ?? ''; // Fixed variable name
+		$newLANG = $_POST['lang'] ?? '';
+		
+		if ($oldEMAIL !== $newEMAIL && $newEMAIL !== '') {
+			$data->EMAIL = $newEMAIL;
+		}
+		
+		if ($oldLANG !== $newLANG && $newLANG !== '') {
+			$data->LANG = $newLANG;
+		}
+		
 		if ($newPWD !== '') {
-			$passhash = passhash($newePWD);
-			$file = str_replace($oldPWD, $passhash, $file);
-		};
-
-		file_put_contents(GSUSERSPATH . $_POST['nameuser'] . '.xml', $file);
-
-		echo ("<meta http-equiv='refresh' content='0'>");
+			$data->PWD = passhash($newPWD);
+		}
+		
+		$data->asXML($filename);
+		
+		echo "<meta http-equiv='refresh' content='0'>";
+		return true;
 	}
 
 	public function userList(){
