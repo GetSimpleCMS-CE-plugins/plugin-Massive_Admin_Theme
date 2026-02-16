@@ -44,8 +44,7 @@ echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 
 			if (file_exists($file)) {
 				$readed = json_decode(file_get_contents($file));
-			}
-			;
+			};
 			?>
 
 			<?php
@@ -90,10 +89,8 @@ echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 					}
 				</script>
 				';
-				}
-				;
-			}
-			;
+				};
+			};
 			?>
 
 			<div class="w3-margin-top w3-center">
@@ -112,7 +109,6 @@ echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 	global $toolbar;
 	global $options;
 	global $EDOPTIONS;
-
 
 	if (isset($EDTOOL))
 		$EDTOOL = returnJsArray($EDTOOL);
@@ -204,6 +200,5 @@ echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 		$MA->snippetSave();
 
 		echo ("<meta http-equiv='refresh' content='0'>");
-	}
-	;
+	};
 	?>

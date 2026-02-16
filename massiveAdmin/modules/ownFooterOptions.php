@@ -202,7 +202,6 @@ echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
         }
     }
 
-
 	// Save with ctrl+s
     document.addEventListener('keydown', function(e) {
         if ((e.ctrlKey || e.metaKey) && e.key === 's') {
@@ -215,7 +214,6 @@ echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
     });
 </script>
 
-
 <?php
 if (isset($_POST['submit'])) {
 	$turnon = $_POST['turnon'] ?? '';
@@ -223,8 +221,7 @@ if (isset($_POST['submit'])) {
 		$turnon = "true";
 	} else {
 		$turnon = "false";
-	}
-	;
+	};
 
 	$ownfootername = $_POST['ownfootername'] ?? '';
 	$ownlogo = $_POST['ownlogo'] ?? '';
@@ -241,8 +238,7 @@ if (isset($_POST['submit'])) {
 		$turncolor = "true";
 	} else {
 		$turncolor = "false";
-	}
-	;
+	};
 
 	if ($ownfootericon == "") {
 		$ownfootericon = $dataOwnFooter->ownfootericon;
@@ -282,8 +278,7 @@ if (isset($_POST['submit'])) {
 		mkdir($massiveOwnFooterFolderFoto, 0755);
 		$datas = 'Allow from all';
 		file_put_contents($massiveOwnFooterFolderFoto . '.htaccess', $datas);
-	}
-	;
+	};
 
 	// Check if image file is a actual image or fake image
 	if (isset($_POST["ownfootericon"])) {
