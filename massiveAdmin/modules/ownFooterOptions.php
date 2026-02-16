@@ -19,11 +19,9 @@ echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 		padding: .75rem 1rem;
 		margin: 0 10px 20px 20px;
 	}
-
 	input::file-selector-button:hover {
 		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 	}
-
 	.CodeMirror {
 		font-size: 15px;
 		width: 100%;
@@ -136,8 +134,8 @@ echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 	</form>
  
 <script>
-	const checkbox = '<?php echo $dataOwnFooter->turnon; ?>';
-	const turncolor = '<?php echo $dataOwnFooter->turncolor; ?>';
+	const checkbox = '<?php echo $dataOwnFooter->turnon ?? ''; ?>';
+	const turncolor = '<?php echo $dataOwnFooter->turncolor ?? ''; ?>';
 
 	if (turncolor == 'true') {
 		document.querySelector('.turncolor').checked = true;
@@ -149,7 +147,7 @@ echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 	} else {
 		document.querySelector('.checkbox').checked = false;
 	}
-	if ("<?php echo $dataOwnFooter->ownlogo; ?>" == "yes") {
+	if ("<?php echo $dataOwnFooter->ownlogo ?? ''; ?>" == "yes") {
 		document.querySelector(".ownlogo").value = "yes";
 	} else {
 		document.querySelector(".ownlogo").value = "no";
