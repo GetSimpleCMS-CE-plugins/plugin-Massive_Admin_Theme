@@ -106,8 +106,8 @@ echo $SITEURL; ?>plugins/massiveAdmin/css/w3-custom.css">
 			<span class="formedit-file">
 				<label>' . $title . ' :</label>
 				<div class="w3-row w3-margin-bottom">
-					<div class="w3-col m2 l2 w3-center">&nbsp;</div>
-					<div class="w3-col m8 l8 w3-center">
+					<!--div class="w3-col m2 l2 w3-center">&nbsp;</div-->
+					<div class="w3-col m10 l8 w3-center">
 						<input type="text" class="mb_file file mbinput w3-input w3-padding w3-border w3-round w3-margin-bottom" name="' . $keyEsc . '" value="' . $valueEsc . '" style="margin-top:30px">
 					</div>
 					<div class="w3-col m2 l2 w3-center">
